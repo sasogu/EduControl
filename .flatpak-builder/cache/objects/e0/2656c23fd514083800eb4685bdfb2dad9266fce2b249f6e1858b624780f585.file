@@ -1,0 +1,5 @@
+[Runtime]
+name=com.educontrol.Client.Debug
+
+[ExtensionOf]
+ref=app/com.educontrol.Client/x86_64/master

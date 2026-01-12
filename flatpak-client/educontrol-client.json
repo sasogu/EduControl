@@ -26,7 +26,8 @@
                 }
             ],
             "build-commands": [
-                "install -Dm755 cliente.py /app/bin/educontrol-cliente"
+                "install -Dm755 cliente.py /app/bin/educontrol-cliente",
+                "gcc -O2 -o /app/bin/educontrol-overlay overlay.c $(pkg-config --cflags --libs gtk+-3.0)"
             ]
         }
     ]
