@@ -1,0 +1,244 @@
+#!/usr/bin/env python3
+import socket
+import subprocess
+import sys
+import threading
+import time
+from typing import Optional
+
+
+MULTICAST_GROUP = '224.1.1.1'
+PORT = 5007
+
+OVERLAY_TITLE = "EduControl"
+OVERLAY_MESSAGE = (
+    "ATENCIÓN\n\n"
+    "Pantalla bloqueada por el profesor.\n\n"
+    "Sigue las instrucciones en clase."
+)
+
+_overlay_lock = threading.Lock()
+_overlay_enabled = False
+_overlay_thread: Optional[threading.Thread] = None
+_overlay_proc: Optional[subprocess.Popen] = None
+
+def _gdbus_call(args: list[str]) -> subprocess.CompletedProcess:
+    return subprocess.run(
+        ["gdbus", "call", *args],
+        capture_output=True,
+        text=True,
+    )
+
+
+def _start_overlay() -> None:
+    global _overlay_enabled, _overlay_thread
+    with _overlay_lock:
+        if _overlay_enabled:
+            return
+        _overlay_enabled = True
+
+        t = threading.Thread(target=_overlay_loop, name="overlay", daemon=True)
+        _overlay_thread = t
+        t.start()
+
+
+def _stop_overlay() -> None:
+    global _overlay_enabled
+    with _overlay_lock:
+        _overlay_enabled = False
+        proc = _overlay_proc
+
+    if proc and proc.poll() is None:
+        try:
+            proc.terminate()
+            proc.wait(timeout=2)
+        except Exception:
+            try:
+                proc.kill()
+            except Exception:
+                pass
+
+
+def _overlay_loop() -> None:
+    # Mantiene un diálogo grande "encima" reabriéndolo si se cierra.
+    # No es un bloqueo de seguridad, pero sí un modo "aula" práctico.
+    global _overlay_proc
+    while True:
+        with _overlay_lock:
+            enabled = _overlay_enabled
+        if not enabled:
+            return
+
+        try:
+            # --no-wrap evita que el texto se corte mal; tamaños grandes ayudan a que sea llamativo.
+            # width/height grandes: zenity las limita al tamaño de pantalla.
+            proc = subprocess.Popen(
+                [
+                    "zenity",
+                    "--warning",
+                    "--title",
+                    OVERLAY_TITLE,
+                    "--no-wrap",
+                    "--text",
+                    OVERLAY_MESSAGE,
+                    "--ok-label",
+                    "Aceptar",
+                    "--width",
+                    "4000",
+                    "--height",
+                    "2000",
+                ],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+            with _overlay_lock:
+                _overlay_proc = proc
+
+            # Espera a que el usuario lo cierre; si sigue bloqueado, se reabre.
+            proc.wait()
+        except FileNotFoundError:
+            print("zenity no está disponible; no se puede mostrar el mensaje de bloqueo.", flush=True)
+            time.sleep(2)
+        except Exception as exc:
+            print(f"Error mostrando overlay: {exc}", flush=True)
+            time.sleep(1)
+
+def _print_gdbus_error(prefix: str, result: subprocess.CompletedProcess) -> None:
+    if result.returncode == 0:
+        return
+    stderr = (result.stderr or "").strip()
+    stdout = (result.stdout or "").strip()
+    if stderr:
+        print(f"{prefix}: {stderr}", flush=True)
+    elif stdout:
+        # gdbus a veces devuelve el error por stdout.
+        print(f"{prefix}: {stdout}", flush=True)
+    else:
+        print(f"{prefix}: fallo (rc={result.returncode})", flush=True)
+
+
+def _try_lock_screensaver(dest: str) -> bool:
+    # Muchos DE exponen un servicio *ScreenSaver* propio (GNOME/MATE/Cinnamon, etc).
+    # El método suele ser <dest>.Lock en /ScreenSaver.
+    if dest == "org.freedesktop.ScreenSaver":
+        method = "org.freedesktop.ScreenSaver.Lock"
+    else:
+        method = f"{dest}.Lock"
+
+    result = _gdbus_call(
+        [
+            "--session",
+            "--dest",
+            dest,
+            "--object-path",
+            "/ScreenSaver",
+            "--method",
+            method,
+        ]
+    )
+    if result.returncode == 0:
+        print(f"Bloqueo OK via {dest}.", flush=True)
+        return True
+
+    _print_gdbus_error(f"Bloqueo via {dest} falló", result)
+    return False
+
+def _try_lock_login1() -> bool:
+    # logind (system bus) suele estar disponible en Ubuntu y no depende del DE.
+    result = _gdbus_call(
+        [
+            "--system",
+            "--dest",
+            "org.freedesktop.login1",
+            "--object-path",
+            "/org/freedesktop/login1",
+            "--method",
+            "org.freedesktop.login1.Manager.LockSessions",
+        ]
+    )
+    if result.returncode == 0:
+        print("Bloqueo OK via org.freedesktop.login1 (LockSessions).", flush=True)
+        return True
+    _print_gdbus_error("Bloqueo via org.freedesktop.login1 falló", result)
+    return False
+
+def bloquear_pantalla():
+    # Modo aula: mostramos un mensaje llamativo que se mantiene hasta 'unlock'.
+    _start_overlay()
+
+    # Además intentamos el bloqueo nativo del sistema (si existe).
+    # Algunos entornos (p.ej. GNOME en Ubuntu) no exponen org.freedesktop.ScreenSaver.
+    # Probamos varios backends antes de rendirnos.
+    for dest in (
+        "org.freedesktop.ScreenSaver",
+        "org.gnome.ScreenSaver",
+        "org.mate.ScreenSaver",
+        "org.cinnamon.ScreenSaver",
+    ):
+        if _try_lock_screensaver(dest):
+            return
+    if _try_lock_login1():
+        return
+
+    print(
+        "No se pudo bloquear la pantalla via DBus (ScreenSaver/login1). "
+        "Revisa que el sistema tenga un locker activo y que el Flatpak tenga permisos DBus."
+    )
+
+def desbloquear_pantalla():
+    _stop_overlay()
+
+    # Desbloquear de forma programática suele estar bloqueado por seguridad.
+    # Intentamos desactivar el salvapantallas; si está bloqueado, seguirá requiriendo contraseña.
+    for dest, method in (
+        ("org.freedesktop.ScreenSaver", "org.freedesktop.ScreenSaver.SetActive"),
+        ("org.gnome.ScreenSaver", "org.freedesktop.ScreenSaver.SetActive"),
+    ):
+        result = _gdbus_call(
+            [
+                "--session",
+                "--dest",
+                dest,
+                "--object-path",
+                "/ScreenSaver",
+                "--method",
+                method,
+                "false",
+            ]
+        )
+        if result.returncode == 0:
+            return
+
+    print("Desbloqueo manual necesario (si aplica).")
+
+def main():
+    # Evita buffering cuando se ejecuta desde Flatpak (útil para logs y depuración).
+    try:
+        sys.stdout.reconfigure(line_buffering=True)
+    except Exception:
+        pass
+
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    sock.bind(('', PORT))
+
+    # Unirse al grupo multicast es opcional: si falla, seguiremos recibiendo broadcast/unicast.
+    try:
+        mreq = socket.inet_aton(MULTICAST_GROUP) + socket.inet_aton('0.0.0.0')
+        sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
+    except OSError as exc:
+        print(f"Aviso: no se pudo unir al grupo multicast ({exc}).", flush=True)
+
+    print("Cliente iniciado. Escuchando comandos...", flush=True)
+    while True:
+        data, _ = sock.recvfrom(1024)
+        comando = data.decode('utf-8')
+        if comando == 'lock':
+            print("Recibido comando para bloquear pantalla.", flush=True)
+            bloquear_pantalla()
+        elif comando == 'unlock':
+            print("Recibido comando para desbloquear pantalla.", flush=True)
+            desbloquear_pantalla()
+
+if __name__ == "__main__":
+    main()

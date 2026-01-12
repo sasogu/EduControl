@@ -1,0 +1,8 @@
+[Application]
+name=com.educontrol.Server
+runtime=org.freedesktop.Platform/x86_64/21.08
+sdk=org.freedesktop.Sdk/x86_64/21.08
+command=educontrol-servidor
+
+[Context]
+shared=network;

@@ -1,0 +1,25 @@
+{
+    "app-id": "com.educontrol.Server",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "21.08",
+    "sdk": "org.freedesktop.Sdk",
+    "command": "educontrol-servidor",
+    "finish-args": [
+        "--share=network"
+    ],
+    "modules": [
+        {
+            "name": "educontrol-servidor",
+            "buildsystem": "simple",
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": "."
+                }
+            ],
+            "build-commands": [
+                "install -Dm755 servidor.py /app/bin/educontrol-servidor"
+            ]
+        }
+    ]
+}
