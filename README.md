@@ -66,12 +66,42 @@ flatpak install --user -y ./dist/educontrol-server.flatpak
 flatpak install --user -y ./dist/educontrol-client.flatpak
 ```
 
+## Autoinicio del cliente (al iniciar sesión)
+
+Flatpak no ejecuta scripts “post-install” en el host, así que para que el cliente se lance automáticamente al iniciar sesión hay que crear un `.desktop` de autostart en el usuario.
+
+Nota: en Bodhi Linux (Moksha/Enlightenment) puede que `~/.config/autostart/` no se respete. El script también instala el autostart en el directorio de startup de Enlightenment para cubrir ese caso.
+
+Este repo incluye un script que instala el Flatpak del cliente y configura el autostart:
+
+```bash
+./scripts/install-client-user-autostart.sh
+```
+
+Si el bundle está en otra ruta:
+
+```bash
+./scripts/install-client-user-autostart.sh /ruta/al/educontrol-client.flatpak
+```
+
+Para desactivar el autostart:
+
+```bash
+./scripts/remove-client-user-autostart.sh
+```
+
 ## Ejecución
 
 En la máquina del profesor (servidor):
 
 ```bash
 flatpak run com.educontrol.Server
+```
+
+Si tienes clientes en una red donde multicast/broadcast no llega (por ejemplo, máquinas virtuales en la red `default` de libvirt), puedes forzar unicast a IPs concretas:
+
+```bash
+flatpak run com.educontrol.Server --targets 192.168.122.144
 ```
 
 En cada máquina del alumnado (cliente):
@@ -88,6 +118,12 @@ flatpak run com.educontrol.Client
 Nota: en escritorios y/o compositores modernos (especialmente Wayland) no siempre es posible “capturar” teclado/ratón como un bloqueo real del sistema. El overlay está pensado como medida práctica de atención en clase, no como un control de seguridad.
 
 ## Depuración rápida
+
+Ver log persistente del cliente (dentro del almacenamiento de Flatpak):
+
+```bash
+tail -f ~/.var/app/com.educontrol.Client/state/educontrol-client.log
+```
 
 Ver el log del cliente en tiempo real y guardarlo:
 
