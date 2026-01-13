@@ -127,6 +127,26 @@ En cada máquina del alumnado (cliente):
 flatpak run com.educontrol.Client
 ```
 
+### Si el cliente no recibe comandos (problemas de red)
+
+EduControl usa UDP en el puerto `5007` y por defecto intenta multicast y broadcast (además de unicast). En muchos centros educativos, sobre todo en Wi‑Fi, es común que:
+
+- Haya **aislamiento de clientes** (los equipos no pueden hablar entre sí).
+- Se **filtre/bloquee multicast o broadcast** para reducir ruido.
+- Haya **VLANs** separadas o ACLs/firewall entre subredes.
+
+Comprobaciones rápidas:
+
+1) Verifica conectividad básica entre máquinas (mismo segmento/VLAN): `ping`/`ssh` entre profesor ↔ alumnado.
+
+2) Prueba **unicast explícito** (suele funcionar aunque el broadcast/multicast esté bloqueado):
+
+```bash
+flatpak run com.educontrol.Server --targets 192.168.1.101,192.168.1.102
+```
+
+3) Si unicast tampoco funciona, revisa firewall/reglas en los clientes (permitir UDP entrante a `5007`) y consulta al administrador de red si hay aislamiento de clientes en el SSID.
+
 ## Modo aula (overlay)
 
 - Al recibir `lock`, el cliente muestra un overlay **a pantalla completa** con un mensaje.
