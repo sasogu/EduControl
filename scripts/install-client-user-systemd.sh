@@ -27,7 +27,7 @@ Wants=graphical-session.target
 [Service]
 Type=simple
 ExecStartPre=-/usr/bin/flatpak kill $APP_ID
-ExecStart=/usr/bin/flatpak run --user --socket=x11 --env=DISPLAY=:0 --env=XAUTHORITY=%h/.Xauthority --env=HOME=%h --env=XDG_STATE_HOME=%h/.var/app/$APP_ID/state $APP_ID
+ExecStart=/usr/bin/flatpak run --socket=x11 --socket=wayland --env=DISPLAY=:0 --env=XAUTHORITY=%h/.Xauthority --env=XDG_STATE_HOME=%h/.var/app/$APP_ID/state $APP_ID
 ExecStop=-/usr/bin/flatpak kill $APP_ID
 Restart=on-failure
 RestartSec=2

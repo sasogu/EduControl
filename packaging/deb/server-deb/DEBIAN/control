@@ -1,0 +1,9 @@
+Package: educontrol-server
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3
+Maintainer: EduControl <noreply@example.org>
+Description: EduControl server - herramienta para enviar comandos a clientes
+ Un pequeño servidor CLI para enviar comandos de bloqueo/desbloqueo a los clientes en la red.

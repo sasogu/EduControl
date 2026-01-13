@@ -1,0 +1,13 @@
+EduControl Client Debian package
+
+Instala un wrapper `/usr/bin/educontrol-start`, un fichero de autostart en
+`/etc/xdg/autostart/` y una unidad de usuario systemd en
+`/usr/lib/systemd/user/educontrol-client.service`.
+
+Tras instalar el paquete puedes (por usuario):
+
+  - Habilitar el servicio user: `systemctl --user enable --now educontrol-client.service`
+  - O añadir manualmente el lanzador en el entorno de inicio de sesión.
+
+Si el cliente Flatpak no está instalado, instala el Flatpak:
+  `flatpak install flathub com.educontrol.Client`

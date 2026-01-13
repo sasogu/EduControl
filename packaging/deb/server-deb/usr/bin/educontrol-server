@@ -1,0 +1,3 @@
+#!/bin/sh
+# Wrapper to run the server script
+exec python3 /usr/share/educontrol-server/servidor.py "$@"

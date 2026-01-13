@@ -1,0 +1,9 @@
+Package: educontrol-client
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: amd64
+Depends: python3, zenity, libglib2.0-bin
+Maintainer: EduControl <noreply@example.org>
+Description: Cliente EduControl (nativo) - muestra overlay de aula y escucha comandos
+ A small native client for classroom control. Installs autostart and binaries.

@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+APP_ID="com.educontrol.Client"
+MAX_WAIT=20
+i=0
+
+# Si el DISPLAY/WAYLAND_DISPLAY ya están presentes, usamos directamente
+if [ -z "${DISPLAY:-}" ] && [ -z "${WAYLAND_DISPLAY:-}" ]; then
+  # intentar leer del compositor Moksha/Enlightenment
+  for pname in moksha enlightenment; do
+    pid=$(pgrep -o "$pname" || true)
+    if [ -n "$pid" ] && [ -r "/proc/$pid/environ" ]; then
+      disp=$(tr '\0' '\n' < /proc/$pid/environ | sed -n 's/^DISPLAY=//p' | head -n1 || true)
+      way=$(tr '\0' '\n' < /proc/$pid/environ | sed -n 's/^WAYLAND_DISPLAY=//p' | head -n1 || true)
+      if [ -n "$disp" ]; then export DISPLAY="$disp"; fi
+      if [ -n "$way" ]; then export WAYLAND_DISPLAY="$way"; fi
+      if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then break; fi
+    fi
+  done
+fi
+
+# Esperar corto plazo si aún no tenemos DISPLAY/WAYLAND (por ejemplo login lento)
+while [ $i -lt $MAX_WAIT ] && { [ -z "${DISPLAY:-}" ] && [ -z "${WAYLAND_DISPLAY:-}" ]; }; do
+  sleep 1
+  i=$((i+1))
+  for pname in moksha enlightenment; do
+    pid=$(pgrep -o "$pname" || true)
+    if [ -n "$pid" ] && [ -r "/proc/$pid/environ" ]; then
+      disp=$(tr '\0' '\n' < /proc/$pid/environ | sed -n 's/^DISPLAY=//p' | head -n1 || true)
+      way=$(tr '\0' '\n' < /proc/$pid/environ | sed -n 's/^WAYLAND_DISPLAY=//p' | head -n1 || true)
+      if [ -n "$disp" ]; then export DISPLAY="$disp"; fi
+      if [ -n "$way" ]; then export WAYLAND_DISPLAY="$way"; fi
+      if [ -n "${DISPLAY:-}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]; then break 2; fi
+    fi
+  done
+done
+
+# Ejecutar el Flatpak en el contexto del usuario
+exec flatpak run --user "$APP_ID"

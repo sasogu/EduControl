@@ -1,0 +1,4 @@
+#!/bin/sh
+# Wrapper to run the Python client installed under /usr/share/educontrol
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+exec python3 /usr/share/educontrol/educontrol-cliente.py

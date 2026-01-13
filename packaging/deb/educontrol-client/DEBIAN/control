@@ -1,0 +1,10 @@
+Package: educontrol-client
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: flatpak
+Maintainer: EduControl Packager <packager@example.com>
+Description: EduControl client helper
+ A small package that installs a session wrapper, a system-wide autostart .desktop
+ and a user systemd unit to help start the EduControl Flatpak client in graphical sessions.

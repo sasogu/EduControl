@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=EduControl (Cliente)
+Comment=Inicia automáticamente el cliente de EduControl al iniciar sesión
+Exec=flatpak run --user com.educontrol.Client
+Terminal=false
+X-GNOME-Autostart-enabled=true

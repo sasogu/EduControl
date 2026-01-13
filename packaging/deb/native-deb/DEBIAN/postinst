@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+# Ensure binaries are executable
+if [ -x /usr/bin/educontrol-client ] || [ -f /usr/bin/educontrol-client ]; then
+  chmod 755 /usr/bin/educontrol-client || true
+fi
+if [ -f /usr/bin/educontrol-overlay ]; then
+  chmod 755 /usr/bin/educontrol-overlay || true
+fi
+# Update desktop database (noop but safe)
+if command -v update-desktop-database >/dev/null 2>&1; then
+  update-desktop-database >/dev/null 2>&1 || true
+fi
+exit 0

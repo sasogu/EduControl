@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+if [ -f /usr/bin/educontrol-server ]; then
+  chmod 755 /usr/bin/educontrol-server || true
+fi
+if [ -f /usr/share/educontrol-server/servidor.py ]; then
+  chmod 755 /usr/share/educontrol-server/servidor.py || true
+fi
+exit 0

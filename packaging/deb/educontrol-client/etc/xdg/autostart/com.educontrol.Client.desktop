@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=EduControl Client
+Exec=/usr/bin/educontrol-start
+Terminal=false
+Categories=Network;Utility;
+Comment=Start EduControl client in graphical sessions
+X-GNOME-Autostart-enabled=true
