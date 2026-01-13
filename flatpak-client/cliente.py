@@ -369,6 +369,19 @@ def main():
             url = comando[len('open '):].strip()
             _log(f"Recibido comando para abrir URL: {url}")
             abrir_url_en_navegador(url)
+        elif comando.startswith('exec '):
+            cmd = comando[len('exec '):].strip()
+            if not cmd:
+                _log('exec: comando vacío; ignorando.')
+            else:
+                _log(f"Recibido comando exec: {cmd}")
+                try:
+                    gui_env = _resolve_gui_env()
+                    # Ejecutamos el comando en shell para permitir redirecciones y args.
+                    subprocess.Popen(cmd, shell=True, env=gui_env)
+                    _log(f"exec: comando lanzado: {cmd}")
+                except Exception as exc:
+                    _log(f"exec: fallo al lanzar comando: {exc}")
 
 if __name__ == "__main__":
     main()
