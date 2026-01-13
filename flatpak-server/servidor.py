@@ -121,7 +121,8 @@ def main() -> None:
         print("Opciones:")
         print("1. Bloquear pantallas de los clientes")
         print("2. Desbloquear pantallas de los clientes")
-        print("3. Salir")
+        print("3. Abrir URL en los navegadores de los clientes")
+        print("4. Salir")
         opcion = input("Selecciona una opción: ")
 
         if opcion == '1':
@@ -131,6 +132,14 @@ def main() -> None:
             enviar_comando('unlock', targets=targets)
             print("Comando 'unlock' enviado.")
         elif opcion == '3':
+            url = input("URL a abrir (ej: https://example.org): ").strip()
+            if not url:
+                print("URL vacía; cancelado.")
+            else:
+                # Enviamos el literal 'open <url>' para que el cliente lo reciba y lo abra.
+                enviar_comando(f'open {url}', targets=targets)
+                print(f"Comando 'open {url}' enviado.")
+        elif opcion == '4':
             print("Saliendo del servidor.")
             break
         else:

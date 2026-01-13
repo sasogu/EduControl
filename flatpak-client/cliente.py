@@ -305,6 +305,38 @@ def desbloquear_pantalla():
 
     print("Desbloqueo manual necesario (si aplica).")
 
+
+def abrir_url_en_navegador(url: str) -> None:
+    """Intenta abrir la URL en el navegador por defecto del usuario usando xdg-open.
+
+    Solo acepta esquemas http/https/file para evitar abusos.
+    """
+    url = url.strip()
+    if not url:
+        _log("open: URL vacía; ignorando.")
+        return
+
+    lower = url.lower()
+    if not (lower.startswith("http://") or lower.startswith("https://") or lower.startswith("file://")):
+        _log(f"open: esquema no soportado en URL: {url}")
+        return
+
+    gui_env = _resolve_gui_env()
+    display = gui_env.get("DISPLAY", "")
+    wayland_display = gui_env.get("WAYLAND_DISPLAY", "")
+    if not display and not wayland_display:
+        _log("open: no hay DISPLAY/WAYLAND_DISPLAY; no se puede abrir navegador desde contexto actual.")
+        return
+
+    try:
+        _log(f"Abriendo URL en navegador: {url}")
+        # xdg-open maneja la delegación al navegador por defecto sin usar shell
+        subprocess.Popen(["xdg-open", url], env=gui_env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except FileNotFoundError:
+        _log("xdg-open no está disponible en este sistema.")
+    except Exception as exc:
+        _log(f"Error al abrir URL: {exc}")
+
 def main():
     # Evita buffering cuando se ejecuta desde Flatpak (útil para logs y depuración).
     try:
@@ -333,6 +365,10 @@ def main():
         elif comando == 'unlock':
             _log("Recibido comando para desbloquear pantalla.")
             desbloquear_pantalla()
+        elif comando.startswith('open '):
+            url = comando[len('open '):].strip()
+            _log(f"Recibido comando para abrir URL: {url}")
+            abrir_url_en_navegador(url)
 
 if __name__ == "__main__":
     main()

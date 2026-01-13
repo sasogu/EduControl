@@ -9,6 +9,7 @@ Componentes principales:
 
 - **Servidor**: envía comandos `lock`/`unlock` por red.
 - **Cliente**: recibe comandos y activa el “modo aula” mostrando un overlay a pantalla completa y, cuando es posible, intenta bloquear la sesión vía DBus.
+ - **Abrir URL**: el servidor puede enviar una orden `open <url>` para que el cliente abra una URL en el navegador por defecto.
 
 ## Estructura
 
@@ -113,6 +114,8 @@ Si tienes clientes en una red donde multicast/broadcast no llega (por ejemplo, m
 ```bash
 flatpak run com.educontrol.Server --targets 192.168.122.144
 ```
+
+Nota: desde el menú interactivo del servidor ahora puedes elegir la opción para enviar una URL a los navegadores de los clientes (entrada textual). El servidor envía el comando `open <url>` y el cliente intentará abrirlo con `xdg-open` si la sesión gráfica está disponible.
 
 En cada máquina del alumnado (cliente):
 

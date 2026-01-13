@@ -6,4 +6,4 @@ Architecture: all
 Depends: python3
 Maintainer: EduControl <noreply@example.org>
 Description: EduControl server - herramienta para enviar comandos a clientes
- Un pequeño servidor CLI para enviar comandos de bloqueo/desbloqueo a los clientes en la red.
+  Un pequeño servidor CLI para enviar comandos de bloqueo/desbloqueo a los clientes en la red.
