@@ -9,8 +9,8 @@ Componentes principales:
 
 - **Servidor**: envía comandos `lock`/`unlock` por red.
 - **Cliente**: recibe comandos y activa el “modo aula” mostrando un overlay a pantalla completa y, cuando es posible, intenta bloquear la sesión vía DBus.
- - **Abrir URL**: el servidor puede enviar una orden `open <url>` para que el cliente abra una URL en el navegador por defecto.
- - **Ejecutar aplicaciones/comandos**: el servidor puede enviar `exec <comando>` para que el cliente intente lanzar una aplicación o ejecutar un comando en la sesión gráfica del usuario.
+- **Abrir URL**: el servidor puede enviar una orden `open <url>` para que el cliente abra una URL en el navegador por defecto.
+- **Ejecutar aplicaciones/comandos**: el servidor puede enviar `exec <comando>` para que el cliente intente lanzar una aplicación o ejecutar un comando en la sesión gráfica del usuario.
 
 ## Estructura
 
