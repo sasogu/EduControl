@@ -137,15 +137,15 @@ EduControl usa UDP en el puerto `5007` y por defecto intenta multicast y broadca
 
 Comprobaciones rápidas:
 
-1) Verifica conectividad básica entre máquinas (mismo segmento/VLAN): `ping`/`ssh` entre profesor ↔ alumnado.
+1. Verifica conectividad básica entre máquinas (mismo segmento/VLAN): `ping`/`ssh` entre profesor ↔ alumnado.
 
-2) Prueba **unicast explícito** (suele funcionar aunque el broadcast/multicast esté bloqueado):
+2. Prueba **unicast explícito** (suele funcionar aunque el broadcast/multicast esté bloqueado):
 
 ```bash
 flatpak run com.educontrol.Server --targets 192.168.1.101,192.168.1.102
 ```
 
-3) Si unicast tampoco funciona, revisa firewall/reglas en los clientes (permitir UDP entrante a `5007`) y consulta al administrador de red si hay aislamiento de clientes en el SSID.
+3. Si unicast tampoco funciona, revisa firewall/reglas en los clientes (permitir UDP entrante a `5007`) y consulta al administrador de red si hay aislamiento de clientes en el SSID.
 
 ## Modo aula (overlay)
 
