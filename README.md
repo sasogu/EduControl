@@ -10,6 +10,7 @@ Componentes principales:
 - **Servidor**: envía comandos `lock`/`unlock` por red.
 - **Cliente**: recibe comandos y activa el “modo aula” mostrando un overlay a pantalla completa y, cuando es posible, intenta bloquear la sesión vía DBus.
  - **Abrir URL**: el servidor puede enviar una orden `open <url>` para que el cliente abra una URL en el navegador por defecto.
+ - **Ejecutar aplicaciones/comandos**: el servidor puede enviar `exec <comando>` para que el cliente intente lanzar una aplicación o ejecutar un comando en la sesión gráfica del usuario.
 
 ## Estructura
 
@@ -27,6 +28,22 @@ En el host donde compilas:
 
 - Flatpak y flatpak-builder.
 - Runtime: `org.freedesktop.Platform//21.08` y `org.freedesktop.Sdk//21.08`.
+
+### Requisitos mínimos para paquetes .deb (nativo)
+
+Los paquetes `.deb` incluidos en `packaging/deb/` están pensados para sistemas Debian/Ubuntu (se ha probado en Debian 12+). Requisitos mínimos para instalar y ejecutar los paquetes nativos:
+
+- **Sistema operativo**: Debian 12 (Bookworm) o compatible.
+- **Puerto de comunicación**: permitir UDP entrante y/o saliente en el puerto `5007` (EduControl usa UDP para discovery y comandos).
+- **Paquetes necesarios (dependencias declaradas en los .deb)**:
+  - `python3` — requerido por el servidor y por los scripts Python del cliente.
+  - `flatpak` — requerido por el paquete helper `educontrol-client` que lanza el cliente Flatpak.
+  - `zenity` — usado por el cliente nativo para diálogos simples (presente en el paquete nativo).
+  - `libglib2.0-bin` — proviene de utilidades que el paquete nativo puede necesitar.
+- **Opcional pero recomendable**:
+  - `systemd` (usuario) — para habilitar/gestionar la unidad `educontrol-client.service` en `~/.config/systemd/user/`.
+
+Estas dependencias se reflejan en los archivos `DEBIAN/control` de los paquetes dentro de `packaging/deb/`.
 
 ## Instalar Flatpak
 
@@ -84,6 +101,39 @@ sudo dpkg -i packaging/deb/educontrol-client-native.deb
 sudo apt-get -y -f install
 ```
 
+### Instalación nativa en Debian — pasos prácticos
+
+Comandos útiles para preparar un equipo Debian/Ubuntu e instalar los `.deb` nativos desde la raíz del repo:
+
+```bash
+# Actualizar e instalar dependencias mínimas
+sudo apt update
+sudo apt install -y python3 zenity libglib2.0-bin flatpak
+
+# Instalar paquetes .deb nativos (servidor y cliente)
+sudo dpkg -i packaging/deb/educontrol-server-native.deb
+sudo dpkg -i packaging/deb/educontrol-client-native.deb
+sudo apt-get -y -f install
+
+# Habilitar y comprobar el servicio de usuario (si se instaló la unit)
+systemctl --user enable --now educontrol-client.service
+systemctl --user status educontrol-client.service
+
+# Permitir el puerto UDP en el firewall (ej. ufw)
+sudo ufw allow 5007/udp
+
+# Ejecutar servidor manualmente (para pruebas)
+/usr/bin/educontrol-server
+# o
+python3 /usr/share/educontrol-server/servidor.py
+```
+
+Notas rápidas:
+
+- Los paquetes y dependencias declaradas se pueden consultar en los archivos `DEBIAN/control` dentro de `packaging/deb/`.
+- Asegúrate de que la red entre profesor y alumnado permite UDP en el puerto `5007`.
+- Si prefieres usar Flatpak en los clientes, instala únicamente el paquete helper `educontrol-client` que depende de `flatpak`.
+
 Qué instala el `.deb` nativo (cliente):
 
 - `/usr/bin/educontrol-client` — wrapper para lanzar el cliente Python.
@@ -117,6 +167,8 @@ flatpak run com.educontrol.Server --targets 192.168.122.144
 
 Nota: desde el menú interactivo del servidor ahora puedes elegir la opción para enviar una URL a los navegadores de los clientes (entrada textual). El servidor envía el comando `open <url>` y el cliente intentará abrirlo con `xdg-open` si la sesión gráfica está disponible.
 
+Además de `open`, el menú interactivo del servidor permite enviar comandos de ejecución remota: enviar `exec <comando>` hará que el cliente intente ejecutar el comando proporcionado (por ejemplo `exec gcompris-qt`).
+
 En cada máquina del alumnado (cliente):
 
 ```bash
@@ -149,6 +201,8 @@ flatpak run com.educontrol.Server --targets 192.168.1.101,192.168.1.102
 - El overlay se mantiene hasta recibir `unlock`.
 
 Nota: en escritorios y/o compositores modernos (especialmente Wayland) no siempre es posible “capturar” teclado/ratón como un bloqueo real del sistema. El overlay está pensado como medida práctica de atención en clase, no como un control de seguridad.
+
+Seguridad adicional: cuando se usa la funcionalidad `exec <comando>` el cliente intentará ejecutar el comando recibido en la sesión del usuario. Asegúrate de desplegar EduControl únicamente en redes de confianza y con equipos administrados; evitar exponer esta funcionalidad en redes públicas o sin control, ya que permite la ejecución remota de procesos en los equipos cliente.
 
 ## Depuración rápida
 
