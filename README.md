@@ -1,9 +1,14 @@
-# EduControl (Flatpak)
+# EduControl
 
-Cliente/servidor para un entorno de aula.
+Cliente/servidor para un entorno de aula. Hay dos formatos disponibles:
+
+- Paquetes Flatpak (originales en este repo).
+- Paquetes nativos `.deb` (Debian 12+), convenientemente preparados para desplegar en aulas.
+
+Componentes principales:
 
 - **Servidor**: envía comandos `lock`/`unlock` por red.
-- **Cliente**: recibe comandos y activa un “modo aula” mostrando un overlay a pantalla completa (y además intenta bloquear la sesión con DBus cuando es posible).
+- **Cliente**: recibe comandos y activa el “modo aula” mostrando un overlay a pantalla completa y, cuando es posible, intenta bloquear la sesión vía DBus.
 
 ## Estructura
 
@@ -45,67 +50,55 @@ sudo dnf install -y flatpak flatpak-builder
 
 ## Construcción (host)
 
-Desde la raíz del proyecto:
+Si quieres usar Flatpak aún puedes construir los bundles del cliente/servidor:
 
 ```bash
-# Cliente
+# Cliente (Flatpak)
 flatpak-builder --repo=repo --force-clean build-dir flatpak-client/educontrol-client.json
 flatpak build-bundle repo dist/educontrol-client.flatpak com.educontrol.Client \
   --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
 
-# Servidor
+# Servidor (Flatpak)
 flatpak-builder --repo=repo --force-clean build-dir flatpak-server/educontrol-server.json
 flatpak build-bundle repo dist/educontrol-server.flatpak com.educontrol.Server \
   --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
 ```
 
-## Instalación (en una máquina destino)
+## Instalación (máquina destino)
+
+Opciones:
+
+- Flatpak: instalar los bundles `dist/*.flatpak` como se indica arriba.
+- Nativo `.deb` (recomendado para despliegues en Debian 12+): el repo incluye paquetes nativos de ejemplo en `packaging/deb/`.
+
+Instalar los `.deb` locales:
 
 ```bash
-flatpak install --user -y ./dist/educontrol-server.flatpak
-flatpak install --user -y ./dist/educontrol-client.flatpak
+# En el equipo profesor (instala servidor)
+sudo dpkg -i packaging/deb/educontrol-server-native.deb
+sudo apt-get -y -f install
+
+# En cada equipo alumno (instala cliente + overlay + autostart)
+sudo dpkg -i packaging/deb/educontrol-client-native.deb
+sudo apt-get -y -f install
 ```
 
-## Autoinicio del cliente (al iniciar sesión)
+Qué instala el `.deb` nativo (cliente):
 
-Flatpak no ejecuta scripts “post-install” en el host, así que para que el cliente se lance automáticamente al iniciar sesión hay que crear un `.desktop` de autostart en el usuario.
+- `/usr/bin/educontrol-client` — wrapper para lanzar el cliente Python.
+- `/usr/bin/educontrol-overlay` — binario overlay fullscreen.
+- `/usr/share/educontrol/educontrol-cliente.py` — código del cliente.
+- `/etc/xdg/autostart/com.educontrol.Client.desktop` — autostart system-wide.
 
-Nota: en Bodhi Linux (Moksha/Enlightenment) puede que `~/.config/autostart/` no se respete. El script también instala el autostart en el directorio de startup de Enlightenment para cubrir ese caso.
+Servidor nativo:
 
-Este repo incluye un script que instala el Flatpak del cliente y configura el autostart:
+- `/usr/bin/educontrol-server` — wrapper que ejecuta `/usr/share/educontrol-server/servidor.py`.
 
-```bash
-./scripts/install-client-user-autostart.sh
-```
+## Autoinicio y notas sobre sesión gráfica
 
-Si el bundle está en otra ruta:
+El `.deb` cliente instala una entrada en `/etc/xdg/autostart` para lanzar el wrapper al iniciar sesión gráfica. En escritorios que no respetan `~/.config/autostart/` (p. ej. Moksha/Enlightenment) esta entrada system-wide suele funcionar.
 
-```bash
-./scripts/install-client-user-autostart.sh /ruta/al/educontrol-client.flatpak
-```
-
-Para desactivar el autostart:
-
-```bash
-./scripts/remove-client-user-autostart.sh
-```
-
-### Alternativa: autoinicio con systemd (servicio de usuario)
-
-Si tu escritorio no respeta `~/.config/autostart/` o prefieres gestionarlo con `systemctl`, puedes usar un servicio `systemd --user`.
-
-Instalar y habilitar el servicio:
-
-```bash
-./scripts/install-client-user-systemd.sh
-systemctl --user status educontrol-client.service
-```
-
-Desactivar y eliminar el servicio:
-
-```bash
-./scripts/remove-client-user-systemd.sh
-```
+Si prefieres `systemd --user` puedes usar el unit file que hemos probado en desarrollo: `usr/lib/systemd/user/educontrol-client.service` (en la versión empaquetada se puede instalar/activar por usuario). En algunos entornos la opción más fiable para garantizar que el proceso herede `DISPLAY`/`XAUTHORITY` es lanzar el wrapper desde la sesión gráfica (autostart) en lugar de arrancarlo desde un servicio que no herede todas las variables.
 
 ## Ejecución
 
@@ -156,23 +149,24 @@ Nota: en escritorios y/o compositores modernos (especialmente Wayland) no siempr
 
 ## Depuración rápida
 
-Ver log persistente del cliente (dentro del almacenamiento de Flatpak):
+Logs del cliente (instalación nativa):
 
 ```bash
 tail -f ~/.var/app/com.educontrol.Client/state/educontrol-client.log
+# o si se ejecuta nativo y usa XDG_STATE_HOME por defecto:
+tail -f ~/.local/state/educontrol-client.log
 ```
 
-Ver el log del cliente en tiempo real y guardarlo:
+Arrancar manualmente (útil para probar visualmente):
 
 ```bash
-flatpak run com.educontrol.Client 2>&1 | tee ~/educontrol-cliente.log
+# En la sesión gráfica del usuario (no por SSH), ejecutar:
+/usr/bin/educontrol-client
 ```
 
-Verificar que el sandbox tiene acceso a display (debe ejecutarse desde sesión gráfica):
+Si la ventana no ocupa toda la pantalla, el cliente intenta usar el binario `educontrol-overlay` instalado en `/usr/bin/educontrol-overlay`. Asegúrate que ese binario está presente y es ejecutable.
 
-```bash
-flatpak run --command=sh com.educontrol.Client -c 'echo "DISPLAY=$DISPLAY WAYLAND_DISPLAY=$WAYLAND_DISPLAY"'
-```
+Si el cliente registra `Overlay: no hay DISPLAY/WAYLAND_DISPLAY`, significa que el proceso no heredó correctamente la variable de entorno de la sesión gráfica; lo más sencillo es lanzar `/usr/bin/educontrol-client` desde una terminal en la sesión gráfica o confiar en el autostart del escritorio.
 
 ## Licencia
 
