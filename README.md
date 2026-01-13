@@ -90,6 +90,23 @@ Para desactivar el autostart:
 ./scripts/remove-client-user-autostart.sh
 ```
 
+### Alternativa: autoinicio con systemd (servicio de usuario)
+
+Si tu escritorio no respeta `~/.config/autostart/` o prefieres gestionarlo con `systemctl`, puedes usar un servicio `systemd --user`.
+
+Instalar y habilitar el servicio:
+
+```bash
+./scripts/install-client-user-systemd.sh
+systemctl --user status educontrol-client.service
+```
+
+Desactivar y eliminar el servicio:
+
+```bash
+./scripts/remove-client-user-systemd.sh
+```
+
 ## Ejecución
 
 En la máquina del profesor (servidor):
