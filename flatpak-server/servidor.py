@@ -140,7 +140,7 @@ def main() -> None:
                 enviar_comando(f'open {url}', targets=targets)
                 print(f"Comando 'open {url}' enviado.")
         elif opcion == '4':
-            cmd = input("Comando a ejecutar en clientes (ej: firefox https://example.org): ").strip()
+            cmd = input("Comando a ejecutar en clientes (ej: gcompris-qt): ").strip()
             if not cmd:
                 print("Comando vacío; cancelado.")
             else:
