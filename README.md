@@ -1,9 +1,6 @@
 # EduControl
 
-Cliente/servidor para un entorno de aula. Hay dos formatos disponibles:
-
-- Paquetes Flatpak (originales en este repo).
-- Paquetes nativos `.deb` (Debian 12+), convenientemente preparados para desplegar en aulas.
+Cliente/servidor para un entorno de aula. El despliegue recomendado es con paquetes nativos `.deb` (Debian 12+).
 
 Componentes principales:
 
@@ -14,20 +11,13 @@ Componentes principales:
 
 ## Estructura
 
-- `flatpak-client/`
-  - `cliente.py`: cliente (escucha UDP y ejecuta lock/unlock).
-  - `overlay.c`: overlay GTK a pantalla completa (sin botón), usado por el cliente.
-  - `educontrol-client.json`: manifest Flatpak del cliente.
-- `flatpak-server/`
-  - `servidor.py`: servidor (envía UDP multicast/broadcast/unicast local).
-  - `educontrol-server.json`: manifest Flatpak del servidor.
+- `packaging/deb/`
+  - `client-deb/`: raíz del paquete del **cliente** (para construir el `.deb`).
+  - `server-deb/`: raíz del paquete del **servidor** (para construir el `.deb`).
+  - `educontrol.client-*.deb`: artefactos del cliente (ya construidos).
+  - `educontrol.server-*.deb`: artefactos del servidor (ya construidos).
 
 ## Requisitos
-
-En el host donde compilas:
-
-- Flatpak y flatpak-builder.
-- Runtime: `org.freedesktop.Platform//21.08` y `org.freedesktop.Sdk//21.08`.
 
 ### Requisitos mínimos para paquetes .deb (nativo)
 
@@ -37,7 +27,6 @@ Los paquetes `.deb` incluidos en `packaging/deb/` están pensados para sistemas 
 - **Puerto de comunicación**: permitir UDP entrante y/o saliente en el puerto `5007` (EduControl usa UDP para discovery y comandos).
 - **Paquetes necesarios (dependencias declaradas en los .deb)**:
   - `python3` — requerido por el servidor y por los scripts Python del cliente.
-  - `flatpak` — requerido por el paquete helper `educontrol-client` que lanza el cliente Flatpak.
   - `zenity` — usado por el cliente nativo para diálogos simples (presente en el paquete nativo).
   - `libglib2.0-bin` — proviene de utilidades que el paquete nativo puede necesitar.
 - **Opcional pero recomendable**:
@@ -45,59 +34,21 @@ Los paquetes `.deb` incluidos en `packaging/deb/` están pensados para sistemas 
 
 Estas dependencias se reflejan en los archivos `DEBIAN/control` de los paquetes dentro de `packaging/deb/`.
 
-## Instalar Flatpak
-
-### Debian/Ubuntu
-
-```bash
-sudo apt update
-sudo apt install -y flatpak flatpak-builder
-```
-
-Opcional (recomendado): añadir Flathub como repositorio de runtimes/apps:
-
-```bash
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-```
-
-### Fedora
-
-```bash
-sudo dnf install -y flatpak flatpak-builder
-```
-
-## Construcción (host)
-
-Si quieres usar Flatpak aún puedes construir los bundles del cliente/servidor:
-
-```bash
-# Cliente (Flatpak)
-flatpak-builder --repo=repo --force-clean build-dir flatpak-client/educontrol-client.json
-flatpak build-bundle repo dist/educontrol-client.flatpak com.educontrol.Client \
-  --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
-
-# Servidor (Flatpak)
-flatpak-builder --repo=repo --force-clean build-dir flatpak-server/educontrol-server.json
-flatpak build-bundle repo dist/educontrol-server.flatpak com.educontrol.Server \
-  --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
-```
-
 ## Instalación (máquina destino)
 
 Opciones:
 
-- Flatpak: instalar los bundles `dist/*.flatpak` como se indica arriba.
 - Nativo `.deb` (recomendado para despliegues en Debian 12+): el repo incluye paquetes nativos de ejemplo en `packaging/deb/`.
 
 Instalar los `.deb` locales:
 
 ```bash
 # En el equipo profesor (instala servidor)
-sudo dpkg -i packaging/deb/educontrol-server-native.deb
+sudo dpkg -i packaging/deb/educontrol.server-0.1.3.deb
 sudo apt-get -y -f install
 
-# En cada equipo alumno (instala cliente + overlay + autostart)
-sudo dpkg -i packaging/deb/educontrol-client-native.deb
+# En cada equipo alumno (instala cliente + overlay + entrada de menú)
+sudo dpkg -i packaging/deb/educontrol.client-0.1.1.deb
 sudo apt-get -y -f install
 ```
 
@@ -108,16 +59,12 @@ Comandos útiles para preparar un equipo Debian/Ubuntu e instalar los `.deb` nat
 ```bash
 # Actualizar e instalar dependencias mínimas
 sudo apt update
-sudo apt install -y python3 zenity libglib2.0-bin flatpak
+sudo apt install -y python3 zenity libglib2.0-bin
 
 # Instalar paquetes .deb nativos (servidor y cliente)
-sudo dpkg -i packaging/deb/educontrol-server-native.deb
-sudo dpkg -i packaging/deb/educontrol-client-native.deb
+sudo dpkg -i packaging/deb/educontrol.server-0.1.3.deb
+sudo dpkg -i packaging/deb/educontrol.client-0.1.1.deb
 sudo apt-get -y -f install
-
-# Habilitar y comprobar el servicio de usuario (si se instaló la unit)
-systemctl --user enable --now educontrol-client.service
-systemctl --user status educontrol-client.service
 
 # Permitir el puerto UDP en el firewall (ej. ufw)
 sudo ufw allow 5007/udp
@@ -132,14 +79,12 @@ Notas rápidas:
 
 - Los paquetes y dependencias declaradas se pueden consultar en los archivos `DEBIAN/control` dentro de `packaging/deb/`.
 - Asegúrate de que la red entre profesor y alumnado permite UDP en el puerto `5007`.
-- Si prefieres usar Flatpak en los clientes, instala únicamente el paquete helper `educontrol-client` que depende de `flatpak`.
-
 Qué instala el `.deb` nativo (cliente):
 
 - `/usr/bin/educontrol-client` — wrapper para lanzar el cliente Python.
 - `/usr/bin/educontrol-overlay` — binario overlay fullscreen.
 - `/usr/share/educontrol/educontrol-cliente.py` — código del cliente.
-- `/etc/xdg/autostart/com.educontrol.Client.desktop` — autostart system-wide.
+- `/usr/share/applications/educontrol-client.desktop` — entrada de menú.
 
 Servidor nativo:
 
@@ -156,13 +101,13 @@ Si prefieres `systemd --user` puedes usar el unit file que hemos probado en desa
 En la máquina del profesor (servidor):
 
 ```bash
-flatpak run com.educontrol.Server
+/usr/bin/educontrol-server
 ```
 
 Si tienes clientes en una red donde multicast/broadcast no llega (por ejemplo, máquinas virtuales en la red `default` de libvirt), puedes forzar unicast a IPs concretas:
 
 ```bash
-flatpak run com.educontrol.Server --targets 192.168.122.144
+/usr/bin/educontrol-server --targets 192.168.122.144
 ```
 
 Nota: desde el menú interactivo del servidor ahora puedes elegir la opción para enviar una URL a los navegadores de los clientes (entrada textual). El servidor envía el comando `open <url>` y el cliente intentará abrirlo con `xdg-open` si la sesión gráfica está disponible.
@@ -172,7 +117,7 @@ Además de `open`, el menú interactivo del servidor permite enviar comandos de 
 En cada máquina del alumnado (cliente):
 
 ```bash
-flatpak run com.educontrol.Client
+/usr/bin/educontrol-client
 ```
 
 ### Si el cliente no recibe comandos (problemas de red)
@@ -190,7 +135,7 @@ Comprobaciones rápidas:
 2. Prueba **unicast explícito** (suele funcionar aunque el broadcast/multicast esté bloqueado):
 
 ```bash
-flatpak run com.educontrol.Server --targets 192.168.1.101,192.168.1.102
+/usr/bin/educontrol-server --targets 192.168.1.101,192.168.1.102
 ```
 
 3. Si unicast tampoco funciona, revisa firewall/reglas en los clientes (permitir UDP entrante a `5007`) y consulta al administrador de red si hay aislamiento de clientes en el SSID.
@@ -209,8 +154,6 @@ Seguridad adicional: cuando se usa la funcionalidad `exec <comando>` el cliente 
 Logs del cliente (instalación nativa):
 
 ```bash
-tail -f ~/.var/app/com.educontrol.Client/state/educontrol-client.log
-# o si se ejecuta nativo y usa XDG_STATE_HOME por defecto:
 tail -f ~/.local/state/educontrol-client.log
 ```
 

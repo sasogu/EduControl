@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=EduControl Cliente
+Comment=Aplicación cliente de EduControl
+Exec=/usr/bin/educontrol-cliente
+Icon=educontrol
+Terminal=false
+Type=Application
+Categories=Utility;Education;

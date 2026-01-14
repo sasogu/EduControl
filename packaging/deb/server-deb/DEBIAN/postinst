@@ -1,9 +1,27 @@
 #!/bin/sh
 set -e
-if [ -f /usr/bin/educontrol-server ]; then
-  chmod 755 /usr/bin/educontrol-server || true
+# Configurar permisos
+chmod 755 /usr/bin/educontrol-server || true
+chmod 755 /usr/share/educontrol-server/servidor.py || true
+
+# Crear un servicio systemd para el servidor
+cat <<EOF > /etc/systemd/system/educontrol-server.service
+[Unit]
+Description=EduControl Server
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/educontrol-server
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Recargar systemd y habilitar el servicio
+if command -v systemctl >/dev/null 2>&1; then
+  systemctl daemon-reload || true
+  systemctl enable educontrol-server.service || true
 fi
-if [ -f /usr/share/educontrol-server/servidor.py ]; then
-  chmod 755 /usr/share/educontrol-server/servidor.py || true
-fi
+
 exit 0
