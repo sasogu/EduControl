@@ -6,7 +6,7 @@ import sys
 import tempfile
 from typing import Any, Dict, List, Optional, Tuple
 
-from educontrol_net import enviar_comando, parse_targets
+from educontrol_net import discover_clients, enviar_comando, parse_targets
 
 
 def _config_dir() -> str:
@@ -134,6 +134,47 @@ def main() -> int:
     ttk.Button(actions, text="Lock", command=send_lock).grid(row=0, column=0, padx=(0, 8))
     ttk.Button(actions, text="Unlock", command=send_unlock).grid(row=0, column=1)
 
+    ttk.Separator(actions, orient="vertical").grid(row=0, column=2, sticky="ns", padx=10)
+
+    def do_discover() -> None:
+        try:
+            items = discover_clients(timeout_s=1.2, targets=current_targets())
+        except Exception as exc:
+            messagebox.showerror("Discovery", f"Error descubriendo clientes: {exc}")
+            return
+
+        # Limpia tabla
+        for row in clients_tree.get_children():
+            clients_tree.delete(row)
+
+        for it in items:
+            ip = it.get("ip", "")
+            hostname = it.get("hostname", "")
+            user = it.get("user", "")
+            disp = it.get("display", "")
+            way = it.get("wayland", "")
+            session = "wayland" if way else ("x11" if disp else "")
+            clients_tree.insert("", "end", values=(ip, hostname, user, session))
+
+        status_var.set(f"Discovery: {len(items)} cliente(s) encontrado(s)")
+
+    ttk.Button(actions, text="Descubrir clientes", command=do_discover).grid(row=0, column=3, padx=(0, 8))
+
+    def use_selected_as_targets() -> None:
+        selected = clients_tree.selection()
+        ips: List[str] = []
+        for iid in selected:
+            vals = clients_tree.item(iid, "values")
+            if vals and vals[0]:
+                ips.append(str(vals[0]))
+        if not ips:
+            messagebox.showinfo("Targets", "Selecciona uno o más clientes en la tabla.")
+            return
+        targets_var.set(",".join(ips))
+        status_var.set(f"Targets actualizados: {len(ips)} IP(s)")
+
+    ttk.Button(actions, text="Usar seleccionados como targets", command=use_selected_as_targets).grid(row=0, column=4)
+
     # Main content
     content = ttk.Frame(root, padding=10)
     content.grid(row=2, column=0, sticky="nsew")
@@ -142,14 +183,28 @@ def main() -> int:
     content.columnconfigure(0, weight=1)
     content.columnconfigure(1, weight=1)
     content.rowconfigure(1, weight=1)
+    content.rowconfigure(4, weight=1)
 
-    ttk.Label(content, text="URLs guardadas").grid(row=0, column=0, sticky="w")
-    ttk.Label(content, text="Comandos guardados").grid(row=0, column=1, sticky="w")
+    ttk.Label(content, text="Clientes detectados").grid(row=0, column=0, columnspan=2, sticky="w")
 
-    urls_list = tk.Listbox(content, height=12)
-    cmds_list = tk.Listbox(content, height=12)
-    urls_list.grid(row=1, column=0, sticky="nsew", padx=(0, 10))
-    cmds_list.grid(row=1, column=1, sticky="nsew")
+    clients_tree = ttk.Treeview(content, columns=("ip", "hostname", "user", "session"), show="headings", height=6)
+    clients_tree.heading("ip", text="IP")
+    clients_tree.heading("hostname", text="Hostname")
+    clients_tree.heading("user", text="Usuario")
+    clients_tree.heading("session", text="Sesión")
+    clients_tree.column("ip", width=130, anchor="w")
+    clients_tree.column("hostname", width=180, anchor="w")
+    clients_tree.column("user", width=120, anchor="w")
+    clients_tree.column("session", width=80, anchor="w")
+    clients_tree.grid(row=1, column=0, columnspan=2, sticky="nsew", pady=(0, 10))
+
+    ttk.Label(content, text="URLs guardadas").grid(row=2, column=0, sticky="w")
+    ttk.Label(content, text="Comandos guardados").grid(row=2, column=1, sticky="w")
+
+    urls_list = tk.Listbox(content, height=10)
+    cmds_list = tk.Listbox(content, height=10)
+    urls_list.grid(row=3, column=0, sticky="nsew", padx=(0, 10))
+    cmds_list.grid(row=3, column=1, sticky="nsew")
 
     def refresh_lists() -> None:
         urls_list.delete(0, tk.END)
@@ -278,20 +333,24 @@ def main() -> int:
         enviar_comando(f"exec {cmd}", targets=current_targets())
 
     urls_buttons = ttk.Frame(content)
-    urls_buttons.grid(row=2, column=0, sticky="ew", pady=(8, 0), padx=(0, 10))
+    urls_buttons.grid(row=4, column=0, sticky="ew", pady=(8, 0), padx=(0, 10))
     ttk.Button(urls_buttons, text="Añadir", command=add_url).grid(row=0, column=0, padx=(0, 6))
     ttk.Button(urls_buttons, text="Editar", command=edit_url).grid(row=0, column=1, padx=(0, 6))
     ttk.Button(urls_buttons, text="Borrar", command=delete_url).grid(row=0, column=2, padx=(0, 6))
     ttk.Button(urls_buttons, text="Enviar (open)", command=send_url).grid(row=0, column=3)
 
     cmds_buttons = ttk.Frame(content)
-    cmds_buttons.grid(row=2, column=1, sticky="ew", pady=(8, 0))
+    cmds_buttons.grid(row=4, column=1, sticky="ew", pady=(8, 0))
     ttk.Button(cmds_buttons, text="Añadir", command=add_cmd).grid(row=0, column=0, padx=(0, 6))
     ttk.Button(cmds_buttons, text="Editar", command=edit_cmd).grid(row=0, column=1, padx=(0, 6))
     ttk.Button(cmds_buttons, text="Borrar", command=delete_cmd).grid(row=0, column=2, padx=(0, 6))
     ttk.Button(cmds_buttons, text="Enviar (exec)", command=send_cmd).grid(row=0, column=3)
 
     refresh_lists()
+
+    status_var = tk.StringVar(value="")
+    status = ttk.Label(root, textvariable=status_var, padding=(10, 0, 10, 10))
+    status.grid(row=3, column=0, sticky="ew")
 
     root.mainloop()
     return 0

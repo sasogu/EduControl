@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import argparse
-from educontrol_net import enviar_comando, parse_targets
+from educontrol_net import discover_clients, enviar_comando, parse_targets
 
 def main() -> None:
     parser = argparse.ArgumentParser(add_help=True)
@@ -19,7 +19,8 @@ def main() -> None:
         print("2. Desbloquear pantallas de los clientes")
         print("3. Abrir URL en los navegadores de los clientes")
         print("4. Ejecutar comando remoto en los clientes")
-        print("5. Salir")
+        print("5. Descubrir clientes (who)")
+        print("6. Salir")
         opcion = input("Selecciona una opción: ")
 
         if opcion == '1':
@@ -43,6 +44,18 @@ def main() -> None:
                 enviar_comando(f'exec {cmd}', targets=targets)
                 print(f"Comando 'exec {cmd}' enviado.")
         elif opcion == '5':
+            items = discover_clients(timeout_s=1.2, targets=targets)
+            if not items:
+                print("No se recibieron respuestas. Revisa firewall/red y que los clientes estén ejecutándose.")
+            else:
+                print(f"Clientes encontrados: {len(items)}")
+                for it in items:
+                    ip = it.get("ip", "")
+                    host = it.get("hostname", "")
+                    user = it.get("user", "")
+                    session = "wayland" if it.get("wayland") else ("x11" if it.get("display") else "")
+                    print(f"- {ip}\t{host}\t{user}\t{session}")
+        elif opcion == '6':
             print("Saliendo del servidor.")
             break
         else:

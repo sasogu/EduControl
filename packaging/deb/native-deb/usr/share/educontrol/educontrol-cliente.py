@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import fcntl
 import socket
 import subprocess
 import sys
@@ -22,6 +23,30 @@ _overlay_lock = threading.Lock()
 _overlay_enabled = False
 _overlay_thread: Optional[threading.Thread] = None
 _overlay_proc: Optional[subprocess.Popen] = None
+
+
+_instance_lock_fh = None
+
+
+def _acquire_single_instance_lock() -> None:
+    global _instance_lock_fh
+    runtime_dir = os.environ.get("XDG_RUNTIME_DIR")
+    if runtime_dir:
+        lock_path = os.path.join(runtime_dir, "educontrol-client.lock")
+    else:
+        lock_path = f"/tmp/educontrol-client-{os.getuid()}.lock"
+
+    os.makedirs(os.path.dirname(lock_path), exist_ok=True)
+    fh = open(lock_path, "w", encoding="utf-8")
+    try:
+        fcntl.flock(fh.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        _log("Ya hay otra instancia de educontrol-client ejecutándose; saliendo.")
+        raise SystemExit(0)
+
+    fh.write(str(os.getpid()))
+    fh.flush()
+    _instance_lock_fh = fh
 
 
 def _log(message: str) -> None:
@@ -355,6 +380,8 @@ def main():
         sys.stdout.reconfigure(line_buffering=True)
     except Exception:
         pass
+
+    _acquire_single_instance_lock()
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

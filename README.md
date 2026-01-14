@@ -138,6 +138,17 @@ Notas:
 - La GUI usa Tkinter; en Debian puede requerir instalar `python3-tk`.
 - Los presets se guardan en `~/.config/educontrol-server/presets.json` (o `$XDG_CONFIG_HOME/educontrol-server/presets.json`).
 
+### Descubrimiento de clientes (who)
+
+El servidor puede descubrir qué clientes están activos enviando el comando UDP `who` y esperando respuestas `iam`.
+
+- En la GUI: botón "Descubrir clientes" → aparecerán IP/hostname/usuario.
+- En el servidor por terminal: opción "Descubrir clientes (who)".
+
+Nota de red: el discovery usa UDP y, por defecto, intenta usar el mismo puerto `5007` (el habitual de EduControl). Si hay firewall en el equipo profesor, permite UDP entrante en `5007`.
+
+Nota: desde `educontrol.client` **0.1.6** el cliente usa un *lockfile* para evitar múltiples instancias (esto ayuda a que el discovery y los comandos no se dupliquen). Si antes se lanzaban varias instancias por autostart, puede hacer falta cerrar sesión o reiniciar el cliente para “limpiar” procesos antiguos.
+
 Si tienes clientes en una red donde multicast/broadcast no llega (por ejemplo, máquinas virtuales en la red `default` de libvirt), puedes forzar unicast a IPs concretas:
 
 ```bash
@@ -189,6 +200,18 @@ Logs del cliente (instalación nativa):
 
 ```bash
 tail -f ~/.local/state/educontrol-client.log
+```
+
+Si ves múltiples procesos del cliente (por ejemplo, varios `python3 ... educontrol-cliente.py`), el lock de instancia única evita que arranquen instancias nuevas, pero las ya existentes seguirán vivas hasta que cierres sesión o reinicies.
+
+Diagnóstico rápido de discovery (servidor):
+
+```bash
+# Fuerza unicast (evita problemas de multicast/broadcast):
+educontrol-server --targets 192.168.122.144
+
+# Ver si llegan paquetes UDP 5007 al profesor (requiere tcpdump):
+sudo timeout 3 tcpdump -ni any udp port 5007
 ```
 
 Arrancar manualmente (útil para probar visualmente):
