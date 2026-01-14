@@ -1,65 +1,61 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# === CONFIG POR DEFECTO (ajusta si quieres) ===
 REPO_URL_DEFAULT="https://repo.edutictac.es"
 KEY_URL_DEFAULT="https://repo.edutictac.es/repo.key"
 KEYRING_PATH_DEFAULT="/usr/share/keyrings/edutictac-repo.gpg"
 LIST_PATH_DEFAULT="/etc/apt/sources.list.d/edutictac.list"
-SUITE_DEFAULT="bookworm"
+
 COMPONENT_DEFAULT="main"
 ARCH_DEFAULT="amd64"
 
-# Paquete a instalar (debe ser el nombre "Package:" real del .deb)
-PKG_DEFAULT="educontrol.server"
+PACKAGE_NAME_DEFAULT="educontrol.server"
 
 usage() {
   cat <<'EOF'
 Uso:
-  sudo ./instalar_educontrol_server.sh [opciones]
+  sudo ./install-server-debian.sh [opciones]
 
 Opciones:
   --repo-url URL        (por defecto: https://repo.edutictac.es)
   --key-url URL         (por defecto: https://repo.edutictac.es/repo.key)
-  --suite CODENAME      (por defecto: bookworm)
+  --suite CODENAME      (por defecto: detectado desde /etc/os-release; fallback: bookworm)
   --component NAME      (por defecto: main)
   --arch ARCH           (por defecto: amd64)
   --package NOMBRE      (por defecto: educontrol.server)
-  --uninstall           Quita repo + keyring (no desinstala el paquete)
   -h, --help            Ayuda
 
 Ejemplos:
-  sudo ./instalar_educontrol_server.sh
-  sudo ./instalar_educontrol_server.sh --package educontrol.server
-  sudo ./instalar_educontrol_server.sh --suite bookworm --package educontrol.server
-  sudo ./instalar_educontrol_server.sh --uninstall
+  sudo ./install-server-debian.sh
+  sudo ./install-server-debian.sh --suite bookworm
+  sudo ./install-server-debian.sh --package educontrol.server
 EOF
 }
 
-need_cmd() {
-  command -v "$1" >/dev/null 2>&1 || {
-    echo "Falta el comando '$1'. Instálalo e inténtalo de nuevo." >&2
-    exit 1
-  }
-}
+if [[ "${EUID}" -ne 0 ]]; then
+  echo "Este script debe ejecutarse con sudo o como root." >&2
+  exit 1
+fi
 
-require_root_or_sudo() {
-  if [[ "${EUID}" -ne 0 ]]; then
-    echo "Este script necesita privilegios de administrador. Ejecútalo con sudo." >&2
-    exit 1
-  fi
-}
-
-# Parse args
 REPO_URL="$REPO_URL_DEFAULT"
 KEY_URL="$KEY_URL_DEFAULT"
 KEYRING_PATH="$KEYRING_PATH_DEFAULT"
 LIST_PATH="$LIST_PATH_DEFAULT"
-SUITE="$SUITE_DEFAULT"
 COMPONENT="$COMPONENT_DEFAULT"
 ARCH="$ARCH_DEFAULT"
-PKG="$PKG_DEFAULT"
-UNINSTALL="0"
+PACKAGE_NAME="$PACKAGE_NAME_DEFAULT"
+
+DETECTED_SUITE="bookworm"
+DETECTED_PRETTY="Linux"
+if [[ -f /etc/os-release ]]; then
+  # shellcheck disable=SC1091
+  . /etc/os-release
+  DETECTED_PRETTY="${PRETTY_NAME:-Linux}"
+  if [[ -n "${VERSION_CODENAME:-}" ]]; then
+    DETECTED_SUITE="$VERSION_CODENAME"
+  fi
+fi
+SUITE="$DETECTED_SUITE"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -68,38 +64,24 @@ while [[ $# -gt 0 ]]; do
     --suite)      SUITE="$2"; shift 2 ;;
     --component)  COMPONENT="$2"; shift 2 ;;
     --arch)       ARCH="$2"; shift 2 ;;
-    --package)    PKG="$2"; shift 2 ;;
-    --uninstall)  UNINSTALL="1"; shift ;;
+    --package)    PACKAGE_NAME="$2"; shift 2 ;;
     -h|--help)    usage; exit 0 ;;
     *) echo "Argumento desconocido: $1" >&2; usage; exit 1 ;;
   esac
 done
 
-require_root_or_sudo
+echo "➡ Detectado: $DETECTED_PRETTY (suite=$SUITE)"
 
-need_cmd curl
-need_cmd gpg
-need_cmd apt-get
-
-# Detect distro (informativo)
-if [[ -r /etc/os-release ]]; then
-  # shellcheck disable=SC1091
-  source /etc/os-release
-  echo "Detectado: ${PRETTY_NAME:-"Linux"} (ID=${ID:-?}, CODENAME=${VERSION_CODENAME:-?})"
-fi
-
-if [[ "$UNINSTALL" == "1" ]]; then
-  echo "Desinstalando repo (sources list + keyring)..."
-  rm -f "$LIST_PATH"
-  rm -f "$KEYRING_PATH"
-  apt-get update -y
-  echo "Hecho. (No he desinstalado el paquete '$PKG'.)"
-  exit 0
-fi
+echo "➡ Instalando dependencias básicas..."
+apt-get update
+apt-get install -y --no-install-recommends ca-certificates curl gnupg
 
 echo "1) Instalando keyring del repo..."
 mkdir -p "$(dirname "$KEYRING_PATH")"
-curl -fsSL "$KEY_URL" | gpg --dearmor -o "$KEYRING_PATH"
+tmp_keyring="$(mktemp)"
+curl -fsSL "$KEY_URL" | gpg --dearmor -o "$tmp_keyring"
+install -m 0644 "$tmp_keyring" "$KEYRING_PATH"
+rm -f "$tmp_keyring"
 chmod 0644 "$KEYRING_PATH"
 
 echo "2) Añadiendo repo APT..."
@@ -109,11 +91,11 @@ EOF
 chmod 0644 "$LIST_PATH"
 
 echo "3) Actualizando índices APT..."
-apt-get update -y
+apt-get update
 
-echo "4) Instalando servidor: ${PKG}"
-apt-get install -y "$PKG"
+echo "4) Instalando servidor: ${PACKAGE_NAME}"
+apt-get install -y "$PACKAGE_NAME"
 
-echo "✅ Listo. Repo instalado y paquete '${PKG}' instalado."
+echo "✅ Listo. Repo instalado y paquete '${PACKAGE_NAME}' instalado."
 echo "Si 'Unable to locate package' aparece, revisa que --package sea el nombre 'Package:' real,"
 echo "y que --suite exista en tu repositorio (ahora mismo suele ser 'bookworm')."

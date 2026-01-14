@@ -38,7 +38,22 @@ Estas dependencias se reflejan en los archivos `DEBIAN/control` de los paquetes 
 
 Opciones:
 
-- Nativo `.deb` (recomendado para despliegues en Debian 12+): el repo incluye paquetes nativos de ejemplo en `packaging/deb/`.
+- Vía repositorio APT (recomendado): instala/actualiza con `apt` usando los scripts de `scripts/`.
+- Nativo `.deb` local: instalar a mano los `.deb` ya construidos en `packaging/deb/`.
+
+### Instalación vía repositorio APT (recomendada)
+
+Esta opción añade el repositorio `https://repo.edutictac.es` (con keyring en `/usr/share/keyrings/`) e instala el paquete.
+
+Nota: el script detecta `VERSION_CODENAME` del sistema; si tu repo solo publica para `bookworm`, fuerza `--suite bookworm`.
+
+```bash
+# Cliente (en cada equipo alumno)
+sudo bash scripts/install-client-debian.sh --suite bookworm
+
+# Servidor (en el equipo profesor)
+sudo bash scripts/install-server-debian.sh --suite bookworm
+```
 
 Instalar los `.deb` locales:
 
@@ -48,7 +63,7 @@ sudo dpkg -i packaging/deb/educontrol.server-0.1.3.deb
 sudo apt-get -y -f install
 
 # En cada equipo alumno (instala cliente + overlay + entrada de menú)
-sudo dpkg -i packaging/deb/educontrol.client-0.1.1.deb
+sudo dpkg -i packaging/deb/educontrol.client-0.1.3.deb
 sudo apt-get -y -f install
 ```
 
@@ -63,7 +78,7 @@ sudo apt install -y python3 zenity libglib2.0-bin
 
 # Instalar paquetes .deb nativos (servidor y cliente)
 sudo dpkg -i packaging/deb/educontrol.server-0.1.3.deb
-sudo dpkg -i packaging/deb/educontrol.client-0.1.1.deb
+sudo dpkg -i packaging/deb/educontrol.client-0.1.3.deb
 sudo apt-get -y -f install
 
 # Permitir el puerto UDP en el firewall (ej. ufw)
@@ -79,7 +94,8 @@ Notas rápidas:
 
 - Los paquetes y dependencias declaradas se pueden consultar en los archivos `DEBIAN/control` dentro de `packaging/deb/`.
 - Asegúrate de que la red entre profesor y alumnado permite UDP en el puerto `5007`.
-  Qué instala el `.deb` nativo (cliente):
+
+Qué instala el `.deb` nativo (cliente):
 
 - `/usr/bin/educontrol-client` — wrapper para lanzar el cliente Python.
 - `/usr/bin/educontrol-overlay` — binario overlay fullscreen.
