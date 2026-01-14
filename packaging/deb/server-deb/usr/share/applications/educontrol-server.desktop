@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=EduControl Server
+Comment=Servidor EduControl (GUI)
+Exec=/usr/bin/educontrol-server-gui
+Terminal=false
+Type=Application
+Categories=Education;Utility;

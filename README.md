@@ -120,6 +120,24 @@ En la máquina del profesor (servidor):
 /usr/bin/educontrol-server
 ```
 
+### Interfaz gráfica del servidor (presets de URLs y comandos)
+
+El paquete del servidor incluye un lanzador gráfico para guardar y reutilizar fácilmente:
+
+- URLs (envía `open <url>`)
+- comandos (envía `exec <comando>`)
+
+Ejecutar:
+
+```bash
+/usr/bin/educontrol-server-gui
+```
+
+Notas:
+
+- La GUI usa Tkinter; en Debian puede requerir instalar `python3-tk`.
+- Los presets se guardan en `~/.config/educontrol-server/presets.json` (o `$XDG_CONFIG_HOME/educontrol-server/presets.json`).
+
 Si tienes clientes en una red donde multicast/broadcast no llega (por ejemplo, máquinas virtuales en la red `default` de libvirt), puedes forzar unicast a IPs concretas:
 
 ```bash

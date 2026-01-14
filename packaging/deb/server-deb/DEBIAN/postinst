@@ -2,7 +2,14 @@
 set -e
 # Configurar permisos
 chmod 755 /usr/bin/educontrol-server || true
+chmod 755 /usr/bin/educontrol-server-gui || true
 chmod 755 /usr/share/educontrol-server/servidor.py || true
+chmod 755 /usr/share/educontrol-server/servidor_gui.py || true
+
+# Actualizar la base de datos de escritorio (para el .desktop del GUI)
+if command -v update-desktop-database >/dev/null 2>&1; then
+  update-desktop-database /usr/share/applications >/dev/null 2>&1 || true
+fi
 
 # Crear un servicio systemd para el servidor
 cat <<EOF > /etc/systemd/system/educontrol-server.service
@@ -18,10 +25,10 @@ Restart=always
 WantedBy=multi-user.target
 EOF
 
-# Recargar systemd y habilitar el servicio
+# Recargar systemd (no habilitamos el servicio por defecto porque el servidor actual es interactivo)
 if command -v systemctl >/dev/null 2>&1; then
   systemctl daemon-reload || true
-  systemctl enable educontrol-server.service || true
+  # Para habilitarlo manualmente: sudo systemctl enable --now educontrol-server.service
 fi
 
 exit 0

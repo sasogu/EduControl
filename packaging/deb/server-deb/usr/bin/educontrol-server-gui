@@ -1,0 +1,3 @@
+#!/bin/sh
+# Wrapper to run the EduControl server GUI
+exec python3 /usr/share/educontrol-server/servidor_gui.py "$@"
