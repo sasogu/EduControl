@@ -79,7 +79,7 @@ Notas rápidas:
 
 - Los paquetes y dependencias declaradas se pueden consultar en los archivos `DEBIAN/control` dentro de `packaging/deb/`.
 - Asegúrate de que la red entre profesor y alumnado permite UDP en el puerto `5007`.
-Qué instala el `.deb` nativo (cliente):
+  Qué instala el `.deb` nativo (cliente):
 
 - `/usr/bin/educontrol-client` — wrapper para lanzar el cliente Python.
 - `/usr/bin/educontrol-overlay` — binario overlay fullscreen.
