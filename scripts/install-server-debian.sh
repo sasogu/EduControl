@@ -57,11 +57,13 @@ if [[ -f /etc/os-release ]]; then
 fi
 SUITE="$DETECTED_SUITE"
 
+SUITE_EXPLICIT=false
+
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --repo-url)   REPO_URL="$2"; shift 2 ;;
     --key-url)    KEY_URL="$2"; shift 2 ;;
-    --suite)      SUITE="$2"; shift 2 ;;
+    --suite)      SUITE="$2"; SUITE_EXPLICIT=true; shift 2 ;;
     --component)  COMPONENT="$2"; shift 2 ;;
     --arch)       ARCH="$2"; shift 2 ;;
     --package)    PACKAGE_NAME="$2"; shift 2 ;;
@@ -70,7 +72,30 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+if [[ "$SUITE_EXPLICIT" == false && "$SUITE" != "bookworm" ]]; then
+  echo "⚠ Suite detectada '$SUITE' no soportada por el repo; usando fallback 'bookworm'."
+  echo "  (Si tu repo publica tu suite, ejecuta con --suite $SUITE)"
+  SUITE="bookworm"
+fi
+
 echo "➡ Detectado: $DETECTED_PRETTY (suite=$SUITE)"
+
+disable_conflicting_repo_entries() {
+  local timestamp
+  timestamp="$(date +%Y%m%d%H%M%S)"
+
+  shopt -s nullglob
+  local f
+  for f in /etc/apt/sources.list.d/*.list /etc/apt/sources.list.d/*.sources; do
+    if grep -qF "$REPO_URL" "$f"; then
+      echo "⚠ Desactivando entrada APT previa: $f"
+      mv "$f" "$f.disabled-$timestamp"
+    fi
+  done
+  shopt -u nullglob
+}
+
+disable_conflicting_repo_entries
 
 echo "➡ Instalando dependencias básicas..."
 apt-get update

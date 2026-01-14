@@ -59,11 +59,11 @@ Instalar los `.deb` locales:
 
 ```bash
 # En el equipo profesor (instala servidor)
-sudo dpkg -i packaging/deb/educontrol.server-0.1.3.deb
+sudo dpkg -i packaging/deb/educontrol.server-*.deb
 sudo apt-get -y -f install
 
 # En cada equipo alumno (instala cliente + overlay + entrada de menú)
-sudo dpkg -i packaging/deb/educontrol.client-0.1.3.deb
+sudo dpkg -i packaging/deb/educontrol.client-*.deb
 sudo apt-get -y -f install
 ```
 
@@ -77,8 +77,8 @@ sudo apt update
 sudo apt install -y python3 zenity libglib2.0-bin
 
 # Instalar paquetes .deb nativos (servidor y cliente)
-sudo dpkg -i packaging/deb/educontrol.server-0.1.3.deb
-sudo dpkg -i packaging/deb/educontrol.client-0.1.3.deb
+sudo dpkg -i packaging/deb/educontrol.server-*.deb
+sudo dpkg -i packaging/deb/educontrol.client-*.deb
 sudo apt-get -y -f install
 
 # Permitir el puerto UDP en el firewall (ej. ufw)

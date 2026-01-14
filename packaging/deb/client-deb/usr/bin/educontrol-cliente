@@ -1,0 +1,3 @@
+#!/bin/sh
+# Compat wrapper: some launchers/scripts expect the Spanish name.
+exec /usr/bin/educontrol-client "$@"

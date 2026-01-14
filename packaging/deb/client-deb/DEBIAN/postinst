@@ -4,6 +4,9 @@ set -e
 if [ -x /usr/bin/educontrol-client ] || [ -f /usr/bin/educontrol-client ]; then
   chmod 755 /usr/bin/educontrol-client || true
 fi
+if [ -x /usr/bin/educontrol-cliente ] || [ -f /usr/bin/educontrol-cliente ]; then
+  chmod 755 /usr/bin/educontrol-cliente || true
+fi
 if [ -f /usr/bin/educontrol-overlay ]; then
   chmod 755 /usr/bin/educontrol-overlay || true
 fi
@@ -16,7 +19,7 @@ if command -v update-desktop-database >/dev/null 2>&1; then
 fi
 
 # Configurar permisos para los archivos copiados
-chmod 755 /usr/share/educontrol/cliente.py || true
+chmod 755 /usr/share/educontrol/educontrol-cliente.py || true
 chmod 755 /usr/share/educontrol/overlay.c || true
 
 # Compilar overlay.c si es necesario
