@@ -7,8 +7,11 @@ fi
 if [ -f /usr/bin/educontrol-overlay ]; then
   chmod 755 /usr/bin/educontrol-overlay || true
 fi
-# Update desktop database (noop but safe)
+# Copiar el archivo .desktop al directorio de aplicaciones
+install -m 644 /usr/share/educontrol/educontrol-client.desktop /usr/share/applications/ || true
+
+# Actualizar la base de datos de escritorio
 if command -v update-desktop-database >/dev/null 2>&1; then
-  update-desktop-database >/dev/null 2>&1 || true
+  update-desktop-database /usr/share/applications >/dev/null 2>&1 || true
 fi
 exit 0
