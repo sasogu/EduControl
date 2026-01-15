@@ -190,6 +190,15 @@ Comprobaciones rápidas:
 - Al recibir `lock`, el cliente muestra un overlay **a pantalla completa** con un mensaje.
 - El overlay se mantiene hasta recibir `unlock`.
 
+### Contraseña al volver (depending del escritorio)
+
+Por defecto, el cliente intenta hacer **lock real del sistema** (ScreenSaver/login1) además de mostrar el overlay.
+En muchos escritorios esto hará que, al volver de un bloqueo, el usuario tenga que introducir contraseña.
+
+Si quieres evitarlo y quedarte en **modo overlay-only**, puedes arrancar el cliente con:
+
+- `EDUCONTROL_DISABLE_SYSTEM_LOCK=1`
+
 Nota: en escritorios y/o compositores modernos (especialmente Wayland) no siempre es posible “capturar” teclado/ratón como un bloqueo real del sistema. El overlay está pensado como medida práctica de atención en clase, no como un control de seguridad.
 
 Seguridad adicional: cuando se usa la funcionalidad `exec <comando>` el cliente intentará ejecutar el comando recibido en la sesión del usuario. Asegúrate de desplegar EduControl únicamente en redes de confianza y con equipos administrados; evitar exponer esta funcionalidad en redes públicas o sin control, ya que permite la ejecución remota de procesos en los equipos cliente.

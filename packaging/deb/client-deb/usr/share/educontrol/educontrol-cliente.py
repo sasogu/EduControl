@@ -157,6 +157,18 @@ def _stop_overlay() -> None:
             except Exception:
                 pass
 
+    # Si por cualquier motivo quedó un overlay huérfano (p.ej. reinicio del cliente,
+    # crash del thread, etc.), intentamos cerrarlo también. En Xorg esto suele ser
+    # necesario para evitar que “no desbloquee” visualmente.
+    try:
+        subprocess.run(
+            ["pkill", "-f", "^/usr/bin/educontrol-overlay"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+    except Exception:
+        pass
+
 
 def _overlay_loop() -> None:
     # Mantiene un diálogo grande "encima" reabriéndolo si se cierra.
@@ -300,9 +312,23 @@ def bloquear_pantalla():
     # Modo aula: mostramos un mensaje llamativo que se mantiene hasta 'unlock'.
     _start_overlay()
 
-    # Además intentamos el bloqueo nativo del sistema (si existe).
+    # Intentamos el bloqueo nativo del sistema (si existe).
     # Algunos entornos (p.ej. GNOME en Ubuntu) no exponen org.freedesktop.ScreenSaver.
     # Probamos varios backends antes de rendirnos.
+    #
+    # Si quieres DESACTIVAR el lock real (solo overlay), exporta:
+    #   EDUCONTROL_DISABLE_SYSTEM_LOCK=1
+    disable_system_lock = os.environ.get("EDUCONTROL_DISABLE_SYSTEM_LOCK", "").strip().lower() in (
+        "1",
+        "true",
+        "yes",
+        "on",
+    )
+    if disable_system_lock:
+        _log("Modo aula: overlay-only (lock real desactivado por EDUCONTROL_DISABLE_SYSTEM_LOCK).")
+        return
+
+    # Lock real (por defecto): intenta bloquear vía DBus.
     for dest in (
         "org.freedesktop.ScreenSaver",
         "org.gnome.ScreenSaver",
@@ -314,9 +340,9 @@ def bloquear_pantalla():
     if _try_lock_login1():
         return
 
-    print(
+    _log(
         "No se pudo bloquear la pantalla via DBus (ScreenSaver/login1). "
-        "Revisa que el sistema tenga un locker activo y que el Flatpak tenga permisos DBus."
+        "Se mantiene el overlay."
     )
 
 def desbloquear_pantalla():

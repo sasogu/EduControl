@@ -24,6 +24,10 @@ chmod 755 /usr/share/educontrol/overlay.c || true
 
 # Compilar overlay.c si es necesario
 if command -v gcc >/dev/null 2>&1 && command -v pkg-config >/dev/null 2>&1; then
-  gcc -O2 -o /usr/bin/educontrol-overlay /usr/share/educontrol/overlay.c $(pkg-config --cflags --libs gtk+-3.0) || true
+  if pkg-config --exists gtk+-3.0; then
+    gcc -O2 -o /usr/bin/educontrol-overlay /usr/share/educontrol/overlay.c $(pkg-config --cflags --libs gtk+-3.0) || true
+  else
+    echo "[educontrol-client] Aviso: gtk+-3.0 (pkg-config) no disponible; no se compila educontrol-overlay" >&2
+  fi
 fi
 exit 0
