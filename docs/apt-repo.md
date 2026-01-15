@@ -22,21 +22,21 @@ Lo más cómodo es usar `reprepro`, que genera toda la estructura (`dists/`, `po
 
 En tu servidor (Debian/Ubuntu) que vaya a servir `https://repo.edutictac.es/`:
 
-1) Instala herramientas
+1. Instala herramientas
 
 ```bash
 sudo apt-get update
 sudo apt-get install -y reprepro nginx gnupg
 ```
 
-2) Crea el directorio del repo (ejemplo)
+2. Crea el directorio del repo (ejemplo)
 
 ```bash
 sudo mkdir -p /var/www/repo/conf
 sudo chown -R "$USER":"$USER" /var/www/repo
 ```
 
-3) Crea (o reutiliza) una clave GPG de firma
+3. Crea (o reutiliza) una clave GPG de firma
 
 - Si ya tienes la clave con la que generas `repo.key`, reutilízala.
 - Si no tienes una:
@@ -51,7 +51,7 @@ Obtén el `KEYID`:
 gpg --list-secret-keys --keyid-format LONG
 ```
 
-4) Configura `reprepro`
+4. Configura `reprepro`
 
 Crea `/var/www/repo/conf/distributions` (ejemplo para Bookworm):
 
@@ -65,7 +65,7 @@ Architectures: amd64 i386 all
 SignWith: <TU_KEYID>
 ```
 
-5) Importa los `.deb`
+5. Importa los `.deb`
 
 Copia los `.deb` al servidor (por ejemplo con `scp`/`rsync`) y luego:
 
@@ -76,10 +76,11 @@ reprepro -b /var/www/repo includedeb bookworm educontrol.client-0.1.6-i386.deb
 ```
 
 Notas:
+
 - El nombre del archivo `.deb` puede ser cualquiera; lo que importa es el campo `Architecture:` dentro del paquete.
 - Si vuelves a incluir una versión ya existente, usa `reprepro remove` o incrementa `Version:`.
 
-6) Publica la clave del repo (`repo.key`)
+6. Publica la clave del repo (`repo.key`)
 
 Los scripts descargan `https://repo.edutictac.es/repo.key` y la convierten a keyring con `gpg --dearmor`.
 
@@ -89,7 +90,7 @@ Puedes publicar la **clave pública en ASCII**:
 gpg --armor --export <TU_KEYID> > /var/www/repo/repo.key
 ```
 
-7) Nginx (ejemplo mínimo)
+7. Nginx (ejemplo mínimo)
 
 Sirve `/var/www/repo` como raíz del vhost `repo.edutictac.es`.
 
