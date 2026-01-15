@@ -45,6 +45,11 @@ COMPONENT="$COMPONENT_DEFAULT"
 ARCH="$ARCH_DEFAULT"
 PACKAGE_NAME="$PACKAGE_NAME_DEFAULT"
 
+if command -v dpkg >/dev/null 2>&1; then
+  ARCH_DEFAULT="$(dpkg --print-architecture 2>/dev/null || echo amd64)"
+  ARCH="$ARCH_DEFAULT"
+fi
+
 DETECTED_SUITE="bookworm"
 DETECTED_PRETTY="Linux"
 if [[ -f /etc/os-release ]]; then
