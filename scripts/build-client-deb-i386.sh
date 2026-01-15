@@ -5,11 +5,14 @@ usage() {
   cat <<'EOF'
 Construye un .deb del cliente para i386 (32-bit) usando un contenedor Debian i386.
 
-Requisitos (host):
+  --image IMAGE  Imagen i386 Debian (por defecto: i386/debian:bullseye)
   - docker o podman
 
 Uso:
   scripts/build-client-deb-i386.sh [--out PATH] [--image IMAGE]
+  - Usamos Bullseye por defecto para maximizar compatibilidad de GLIBC
+    (un binario compilado en Bookworm puede requerir GLIBC_2.34 y fallar
+    en equipos con Debian 11 / glibc 2.31).
 
 Opciones:
   --out PATH     Ruta del .deb de salida (por defecto: packaging/deb/educontrol.client-<version>-i386.deb)
@@ -38,7 +41,7 @@ if [[ -z "$VERSION" ]]; then
 fi
 
 OUT_REL="packaging/deb/educontrol.client-${VERSION}-i386.deb"
-IMAGE="i386/debian:bookworm"
+IMAGE="i386/debian:bullseye"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in

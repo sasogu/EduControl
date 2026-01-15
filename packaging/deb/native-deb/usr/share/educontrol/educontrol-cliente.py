@@ -14,9 +14,9 @@ PORT = 5007
 
 OVERLAY_TITLE = "EduControl"
 OVERLAY_MESSAGE = (
-    "ATENCIÓN\n\n"
-    "Pantalla bloqueada por el profesor.\n\n"
-    "Sigue las instrucciones en clase."
+    "ATENCIÓ\n\n"
+    "Pantalla bloquejada pel professorat.\n\n"
+    "Segueix les instruccions a classe."
 )
 
 _overlay_lock = threading.Lock()
@@ -212,7 +212,7 @@ def _overlay_loop() -> None:
                         "--text",
                         OVERLAY_MESSAGE,
                         "--ok-label",
-                        "Aceptar",
+                        "Acceptar",
                     ],
                     env=gui_env,
                     stdout=subprocess.PIPE,

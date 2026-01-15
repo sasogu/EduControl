@@ -1,0 +1,2 @@
+ Architecture: amd64
+ Depends: python3, zenity, libglib2.0-bin, libgtk-3-0

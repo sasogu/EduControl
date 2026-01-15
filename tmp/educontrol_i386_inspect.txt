@@ -1,0 +1,6957 @@
+++ __vsc_preexec_only tmp
+++ '[' 0 = 0 ']'
+++ __vsc_in_command_execution=1
+++ __vsc_preexec
+++ __vsc_initialized=1
+++ [[ ! echo "DEB=$DEB" == __vsc_prompt* ]]
+++ '[' 1 = 1 ']'
++++ builtin history 1
++++ sed 's/ *[0-9]* *//'
+++ __vsc_current_command='{   echo "DEB=$DEB";   echo "== dpkg-deb -I ==";   dpkg-deb -I "$DEB";   echo;   echo "== dpkg-deb -c (first 120 lines) ==";   dpkg-deb -c "$DEB" | sed -n '\''1,120p'\'';   echo;   TMPDIR=$(mktemp -d);   dpkg-deb -x "$DEB" "$TMPDIR";   echo "== overlay file ==";   file "$TMPDIR/usr/bin/educontrol-overlay" || true;   echo "== overlay ELF header ==";   readelf -h "$TMPDIR/usr/bin/educontrol-overlay" | egrep '\''Class:|Machine:|OS/ABI:'\'' || true;   echo "== overlay interpreter ==";   readelf -l "$TMPDIR/usr/bin/educontrol-overlay" | grep -n "interpreter" -A2 || true;   echo "== GLIBC versions ==";   objdump -T "$TMPDIR/usr/bin/educontrol-overlay" 2>/dev/null | grep -o '\''GLIBC_[0-9]\+\.[0-9]\+'\'' | sort -Vu | tail -n 50 || true;   rm -rf "$TMPDIR"; } > "$OUT" 2>&1'
+++ __vsc_command_output_start
+++ [[ -z 1 ]]
++++ __vsc_escape_value '{   echo "DEB=$DEB";   echo "== dpkg-deb -I ==";   dpkg-deb -I "$DEB";   echo;   echo "== dpkg-deb -c (first 120 lines) ==";   dpkg-deb -c "$DEB" | sed -n '\''1,120p'\'';   echo;   TMPDIR=$(mktemp -d);   dpkg-deb -x "$DEB" "$TMPDIR";   echo "== overlay file ==";   file "$TMPDIR/usr/bin/educontrol-overlay" || true;   echo "== overlay ELF header ==";   readelf -h "$TMPDIR/usr/bin/educontrol-overlay" | egrep '\''Class:|Machine:|OS/ABI:'\'' || true;   echo "== overlay interpreter ==";   readelf -l "$TMPDIR/usr/bin/educontrol-overlay" | grep -n "interpreter" -A2 || true;   echo "== GLIBC versions ==";   objdump -T "$TMPDIR/usr/bin/educontrol-overlay" 2>/dev/null | grep -o '\''GLIBC_[0-9]\+\.[0-9]\+'\'' | sort -Vu | tail -n 50 || true;   rm -rf "$TMPDIR"; } > "$OUT" 2>&1'
++++ '[' 757 -ge 2000 ']'
++++ builtin local -r LC_ALL=C
++++ builtin local -r 'str={   echo "DEB=$DEB";   echo "== dpkg-deb -I ==";   dpkg-deb -I "$DEB";   echo;   echo "== dpkg-deb -c (first 120 lines) ==";   dpkg-deb -c "$DEB" | sed -n '\''1,120p'\'';   echo;   TMPDIR=$(mktemp -d);   dpkg-deb -x "$DEB" "$TMPDIR";   echo "== overlay file ==";   file "$TMPDIR/usr/bin/educontrol-overlay" || true;   echo "== overlay ELF header ==";   readelf -h "$TMPDIR/usr/bin/educontrol-overlay" | egrep '\''Class:|Machine:|OS/ABI:'\'' || true;   echo "== overlay interpreter ==";   readelf -l "$TMPDIR/usr/bin/educontrol-overlay" | grep -n "interpreter" -A2 || true;   echo "== GLIBC versions ==";   objdump -T "$TMPDIR/usr/bin/educontrol-overlay" 2>/dev/null | grep -o '\''GLIBC_[0-9]\+\.[0-9]\+'\'' | sort -Vu | tail -n 50 || true;   rm -rf "$TMPDIR"; } > "$OUT" 2>&1'
++++ builtin local -ir len=757
++++ builtin local -i i
++++ builtin local -i val
++++ builtin local byte
++++ builtin local token
++++ builtin local out=
++++ (( i=0 ))
++++ (( i < 757 ))
++++ byte='{'
++++ builtin printf -v val %d ''\''{'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='{'
++++ out+='{'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=h
++++ builtin printf -v val %d ''\''h'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=h
++++ out+=h
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=D
++++ builtin printf -v val %d ''\''D'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=D
++++ out+=D
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=E
++++ builtin printf -v val %d ''\''E'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=E
++++ out+=E
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=B
++++ builtin printf -v val %d ''\''B'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=B
++++ out+=B
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='$'
++++ builtin printf -v val %d ''\''$'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='$'
++++ out+='$'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=D
++++ builtin printf -v val %d ''\''D'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=D
++++ out+=D
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=E
++++ builtin printf -v val %d ''\''E'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=E
++++ out+=E
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=B
++++ builtin printf -v val %d ''\''B'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=B
++++ out+=B
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=h
++++ builtin printf -v val %d ''\''h'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=h
++++ out+=h
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=p
++++ builtin printf -v val %d ''\''p'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=p
++++ out+=p
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=k
++++ builtin printf -v val %d ''\''k'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=k
++++ out+=k
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=g
++++ builtin printf -v val %d ''\''g'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=g
++++ out+=g
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=b
++++ builtin printf -v val %d ''\''b'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=b
++++ out+=b
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=I
++++ builtin printf -v val %d ''\''I'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=I
++++ out+=I
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=p
++++ builtin printf -v val %d ''\''p'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=p
++++ out+=p
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=k
++++ builtin printf -v val %d ''\''k'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=k
++++ out+=k
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=g
++++ builtin printf -v val %d ''\''g'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=g
++++ out+=g
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=b
++++ builtin printf -v val %d ''\''b'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=b
++++ out+=b
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=I
++++ builtin printf -v val %d ''\''I'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=I
++++ out+=I
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='$'
++++ builtin printf -v val %d ''\''$'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='$'
++++ out+='$'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=D
++++ builtin printf -v val %d ''\''D'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=D
++++ out+=D
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=E
++++ builtin printf -v val %d ''\''E'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=E
++++ out+=E
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=B
++++ builtin printf -v val %d ''\''B'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=B
++++ out+=B
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=h
++++ builtin printf -v val %d ''\''h'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=h
++++ out+=h
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=h
++++ builtin printf -v val %d ''\''h'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=h
++++ out+=h
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=p
++++ builtin printf -v val %d ''\''p'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=p
++++ out+=p
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=k
++++ builtin printf -v val %d ''\''k'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=k
++++ out+=k
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=g
++++ builtin printf -v val %d ''\''g'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=g
++++ out+=g
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=b
++++ builtin printf -v val %d ''\''b'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=b
++++ out+=b
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='('
++++ builtin printf -v val %d ''\''('
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='('
++++ out+='('
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=f
++++ builtin printf -v val %d ''\''f'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=f
++++ out+=f
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=i
++++ builtin printf -v val %d ''\''i'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=i
++++ out+=i
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=s
++++ builtin printf -v val %d ''\''s'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=s
++++ out+=s
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=1
++++ builtin printf -v val %d ''\''1'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=1
++++ out+=1
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=2
++++ builtin printf -v val %d ''\''2'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=2
++++ out+=2
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=0
++++ builtin printf -v val %d ''\''0'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=0
++++ out+=0
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=i
++++ builtin printf -v val %d ''\''i'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=i
++++ out+=i
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=s
++++ builtin printf -v val %d ''\''s'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=s
++++ out+=s
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=')'
++++ builtin printf -v val %d ''\'')'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=')'
++++ out+=')'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=p
++++ builtin printf -v val %d ''\''p'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=p
++++ out+=p
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=k
++++ builtin printf -v val %d ''\''k'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=k
++++ out+=k
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=g
++++ builtin printf -v val %d ''\''g'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=g
++++ out+=g
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=b
++++ builtin printf -v val %d ''\''b'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=b
++++ out+=b
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='$'
++++ builtin printf -v val %d ''\''$'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='$'
++++ out+='$'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=D
++++ builtin printf -v val %d ''\''D'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=D
++++ out+=D
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=E
++++ builtin printf -v val %d ''\''E'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=E
++++ out+=E
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=B
++++ builtin printf -v val %d ''\''B'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=B
++++ out+=B
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=s
++++ builtin printf -v val %d ''\''s'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=s
++++ out+=s
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=\'
++++ builtin printf -v val %d ''\'''\'''
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=\'
++++ out+=\'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=1
++++ builtin printf -v val %d ''\''1'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=1
++++ out+=1
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=,
++++ builtin printf -v val %d ''\'','
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=,
++++ out+=,
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=1
++++ builtin printf -v val %d ''\''1'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=1
++++ out+=1
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=2
++++ builtin printf -v val %d ''\''2'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=2
++++ out+=2
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=0
++++ builtin printf -v val %d ''\''0'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=0
++++ out+=0
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=p
++++ builtin printf -v val %d ''\''p'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=p
++++ out+=p
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=\'
++++ builtin printf -v val %d ''\'''\'''
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=\'
++++ out+=\'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=h
++++ builtin printf -v val %d ''\''h'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=h
++++ out+=h
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=T
++++ builtin printf -v val %d ''\''T'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=T
++++ out+=T
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=M
++++ builtin printf -v val %d ''\''M'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=M
++++ out+=M
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=P
++++ builtin printf -v val %d ''\''P'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=P
++++ out+=P
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=D
++++ builtin printf -v val %d ''\''D'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=D
++++ out+=D
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=I
++++ builtin printf -v val %d ''\''I'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=I
++++ out+=I
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=R
++++ builtin printf -v val %d ''\''R'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=R
++++ out+=R
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='$'
++++ builtin printf -v val %d ''\''$'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='$'
++++ out+='$'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='('
++++ builtin printf -v val %d ''\''('
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='('
++++ out+='('
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=m
++++ builtin printf -v val %d ''\''m'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=m
++++ out+=m
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=k
++++ builtin printf -v val %d ''\''k'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=k
++++ out+=k
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=m
++++ builtin printf -v val %d ''\''m'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=m
++++ out+=m
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=p
++++ builtin printf -v val %d ''\''p'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=p
++++ out+=p
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=')'
++++ builtin printf -v val %d ''\'')'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=')'
++++ out+=')'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=p
++++ builtin printf -v val %d ''\''p'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=p
++++ out+=p
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=k
++++ builtin printf -v val %d ''\''k'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=k
++++ out+=k
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=g
++++ builtin printf -v val %d ''\''g'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=g
++++ out+=g
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=b
++++ builtin printf -v val %d ''\''b'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=b
++++ out+=b
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=x
++++ builtin printf -v val %d ''\''x'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=x
++++ out+=x
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='$'
++++ builtin printf -v val %d ''\''$'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='$'
++++ out+='$'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=D
++++ builtin printf -v val %d ''\''D'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=D
++++ out+=D
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=E
++++ builtin printf -v val %d ''\''E'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=E
++++ out+=E
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=B
++++ builtin printf -v val %d ''\''B'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=B
++++ out+=B
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='$'
++++ builtin printf -v val %d ''\''$'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='$'
++++ out+='$'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=T
++++ builtin printf -v val %d ''\''T'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=T
++++ out+=T
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=M
++++ builtin printf -v val %d ''\''M'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=M
++++ out+=M
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=P
++++ builtin printf -v val %d ''\''P'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=P
++++ out+=P
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=D
++++ builtin printf -v val %d ''\''D'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=D
++++ out+=D
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=I
++++ builtin printf -v val %d ''\''I'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=I
++++ out+=I
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=R
++++ builtin printf -v val %d ''\''R'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=R
++++ out+=R
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=h
++++ builtin printf -v val %d ''\''h'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=h
++++ out+=h
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=v
++++ builtin printf -v val %d ''\''v'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=v
++++ out+=v
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=a
++++ builtin printf -v val %d ''\''a'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=a
++++ out+=a
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=y
++++ builtin printf -v val %d ''\''y'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=y
++++ out+=y
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=f
++++ builtin printf -v val %d ''\''f'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=f
++++ out+=f
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=i
++++ builtin printf -v val %d ''\''i'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=i
++++ out+=i
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=f
++++ builtin printf -v val %d ''\''f'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=f
++++ out+=f
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=i
++++ builtin printf -v val %d ''\''i'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=i
++++ out+=i
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='$'
++++ builtin printf -v val %d ''\''$'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='$'
++++ out+='$'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=T
++++ builtin printf -v val %d ''\''T'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=T
++++ out+=T
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=M
++++ builtin printf -v val %d ''\''M'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=M
++++ out+=M
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=P
++++ builtin printf -v val %d ''\''P'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=P
++++ out+=P
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=D
++++ builtin printf -v val %d ''\''D'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=D
++++ out+=D
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=I
++++ builtin printf -v val %d ''\''I'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=I
++++ out+=I
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=R
++++ builtin printf -v val %d ''\''R'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=R
++++ out+=R
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=s
++++ builtin printf -v val %d ''\''s'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=s
++++ out+=s
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=b
++++ builtin printf -v val %d ''\''b'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=b
++++ out+=b
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=i
++++ builtin printf -v val %d ''\''i'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=i
++++ out+=i
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=v
++++ builtin printf -v val %d ''\''v'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=v
++++ out+=v
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=a
++++ builtin printf -v val %d ''\''a'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=a
++++ out+=a
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=y
++++ builtin printf -v val %d ''\''y'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=y
++++ out+=y
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=h
++++ builtin printf -v val %d ''\''h'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=h
++++ out+=h
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=v
++++ builtin printf -v val %d ''\''v'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=v
++++ out+=v
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=a
++++ builtin printf -v val %d ''\''a'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=a
++++ out+=a
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=y
++++ builtin printf -v val %d ''\''y'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=y
++++ out+=y
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=E
++++ builtin printf -v val %d ''\''E'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=E
++++ out+=E
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=L
++++ builtin printf -v val %d ''\''L'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=L
++++ out+=L
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=F
++++ builtin printf -v val %d ''\''F'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=F
++++ out+=F
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=h
++++ builtin printf -v val %d ''\''h'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=h
++++ out+=h
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=a
++++ builtin printf -v val %d ''\''a'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=a
++++ out+=a
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=a
++++ builtin printf -v val %d ''\''a'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=a
++++ out+=a
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=f
++++ builtin printf -v val %d ''\''f'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=f
++++ out+=f
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=h
++++ builtin printf -v val %d ''\''h'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=h
++++ out+=h
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='$'
++++ builtin printf -v val %d ''\''$'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='$'
++++ out+='$'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=T
++++ builtin printf -v val %d ''\''T'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=T
++++ out+=T
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=M
++++ builtin printf -v val %d ''\''M'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=M
++++ out+=M
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=P
++++ builtin printf -v val %d ''\''P'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=P
++++ out+=P
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=D
++++ builtin printf -v val %d ''\''D'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=D
++++ out+=D
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=I
++++ builtin printf -v val %d ''\''I'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=I
++++ out+=I
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=R
++++ builtin printf -v val %d ''\''R'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=R
++++ out+=R
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=s
++++ builtin printf -v val %d ''\''s'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=s
++++ out+=s
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=b
++++ builtin printf -v val %d ''\''b'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=b
++++ out+=b
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=i
++++ builtin printf -v val %d ''\''i'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=i
++++ out+=i
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=v
++++ builtin printf -v val %d ''\''v'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=v
++++ out+=v
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=a
++++ builtin printf -v val %d ''\''a'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=a
++++ out+=a
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=y
++++ builtin printf -v val %d ''\''y'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=y
++++ out+=y
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=g
++++ builtin printf -v val %d ''\''g'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=g
++++ out+=g
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=p
++++ builtin printf -v val %d ''\''p'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=p
++++ out+=p
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=\'
++++ builtin printf -v val %d ''\'''\'''
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=\'
++++ out+=\'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=C
++++ builtin printf -v val %d ''\''C'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=C
++++ out+=C
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=a
++++ builtin printf -v val %d ''\''a'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=a
++++ out+=a
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=s
++++ builtin printf -v val %d ''\''s'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=s
++++ out+=s
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=s
++++ builtin printf -v val %d ''\''s'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=s
++++ out+=s
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=:
++++ builtin printf -v val %d ''\'':'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=:
++++ out+=:
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=M
++++ builtin printf -v val %d ''\''M'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=M
++++ out+=M
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=a
++++ builtin printf -v val %d ''\''a'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=a
++++ out+=a
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=h
++++ builtin printf -v val %d ''\''h'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=h
++++ out+=h
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=i
++++ builtin printf -v val %d ''\''i'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=i
++++ out+=i
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=:
++++ builtin printf -v val %d ''\'':'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=:
++++ out+=:
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=O
++++ builtin printf -v val %d ''\''O'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=O
++++ out+=O
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=S
++++ builtin printf -v val %d ''\''S'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=S
++++ out+=S
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=A
++++ builtin printf -v val %d ''\''A'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=A
++++ out+=A
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=B
++++ builtin printf -v val %d ''\''B'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=B
++++ out+=B
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=I
++++ builtin printf -v val %d ''\''I'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=I
++++ out+=I
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=:
++++ builtin printf -v val %d ''\'':'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=:
++++ out+=:
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=\'
++++ builtin printf -v val %d ''\'''\'''
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=\'
++++ out+=\'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=h
++++ builtin printf -v val %d ''\''h'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=h
++++ out+=h
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=v
++++ builtin printf -v val %d ''\''v'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=v
++++ out+=v
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=a
++++ builtin printf -v val %d ''\''a'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=a
++++ out+=a
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=y
++++ builtin printf -v val %d ''\''y'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=y
++++ out+=y
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=i
++++ builtin printf -v val %d ''\''i'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=i
++++ out+=i
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=p
++++ builtin printf -v val %d ''\''p'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=p
++++ out+=p
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=a
++++ builtin printf -v val %d ''\''a'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=a
++++ out+=a
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=f
++++ builtin printf -v val %d ''\''f'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=f
++++ out+=f
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='$'
++++ builtin printf -v val %d ''\''$'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='$'
++++ out+='$'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=T
++++ builtin printf -v val %d ''\''T'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=T
++++ out+=T
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=M
++++ builtin printf -v val %d ''\''M'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=M
++++ out+=M
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=P
++++ builtin printf -v val %d ''\''P'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=P
++++ out+=P
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=D
++++ builtin printf -v val %d ''\''D'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=D
++++ out+=D
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=I
++++ builtin printf -v val %d ''\''I'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=I
++++ out+=I
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=R
++++ builtin printf -v val %d ''\''R'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=R
++++ out+=R
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=s
++++ builtin printf -v val %d ''\''s'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=s
++++ out+=s
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=b
++++ builtin printf -v val %d ''\''b'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=b
++++ out+=b
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=i
++++ builtin printf -v val %d ''\''i'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=i
++++ out+=i
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=v
++++ builtin printf -v val %d ''\''v'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=v
++++ out+=v
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=a
++++ builtin printf -v val %d ''\''a'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=a
++++ out+=a
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=y
++++ builtin printf -v val %d ''\''y'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=y
++++ out+=y
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=g
++++ builtin printf -v val %d ''\''g'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=g
++++ out+=g
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=p
++++ builtin printf -v val %d ''\''p'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=p
++++ out+=p
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=i
++++ builtin printf -v val %d ''\''i'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=i
++++ out+=i
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=p
++++ builtin printf -v val %d ''\''p'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=p
++++ out+=p
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=A
++++ builtin printf -v val %d ''\''A'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=A
++++ out+=A
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=2
++++ builtin printf -v val %d ''\''2'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=2
++++ out+=2
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=h
++++ builtin printf -v val %d ''\''h'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=h
++++ out+=h
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=G
++++ builtin printf -v val %d ''\''G'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=G
++++ out+=G
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=L
++++ builtin printf -v val %d ''\''L'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=L
++++ out+=L
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=I
++++ builtin printf -v val %d ''\''I'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=I
++++ out+=I
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=B
++++ builtin printf -v val %d ''\''B'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=B
++++ out+=B
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=C
++++ builtin printf -v val %d ''\''C'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=C
++++ out+=C
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=v
++++ builtin printf -v val %d ''\''v'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=v
++++ out+=v
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=s
++++ builtin printf -v val %d ''\''s'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=s
++++ out+=s
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=i
++++ builtin printf -v val %d ''\''i'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=i
++++ out+=i
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=s
++++ builtin printf -v val %d ''\''s'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=s
++++ out+=s
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte==
++++ builtin printf -v val %d ''\''='
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token==
++++ out+==
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=b
++++ builtin printf -v val %d ''\''b'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=b
++++ out+=b
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=j
++++ builtin printf -v val %d ''\''j'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=j
++++ out+=j
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=m
++++ builtin printf -v val %d ''\''m'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=m
++++ out+=m
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=p
++++ builtin printf -v val %d ''\''p'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=p
++++ out+=p
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=T
++++ builtin printf -v val %d ''\''T'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=T
++++ out+=T
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='$'
++++ builtin printf -v val %d ''\''$'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='$'
++++ out+='$'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=T
++++ builtin printf -v val %d ''\''T'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=T
++++ out+=T
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=M
++++ builtin printf -v val %d ''\''M'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=M
++++ out+=M
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=P
++++ builtin printf -v val %d ''\''P'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=P
++++ out+=P
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=D
++++ builtin printf -v val %d ''\''D'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=D
++++ out+=D
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=I
++++ builtin printf -v val %d ''\''I'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=I
++++ out+=I
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=R
++++ builtin printf -v val %d ''\''R'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=R
++++ out+=R
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=s
++++ builtin printf -v val %d ''\''s'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=s
++++ out+=s
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=b
++++ builtin printf -v val %d ''\''b'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=b
++++ out+=b
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=i
++++ builtin printf -v val %d ''\''i'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=i
++++ out+=i
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=c
++++ builtin printf -v val %d ''\''c'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=c
++++ out+=c
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=v
++++ builtin printf -v val %d ''\''v'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=v
++++ out+=v
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=a
++++ builtin printf -v val %d ''\''a'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=a
++++ out+=a
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=y
++++ builtin printf -v val %d ''\''y'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=y
++++ out+=y
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=2
++++ builtin printf -v val %d ''\''2'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=2
++++ out+=2
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='>'
++++ builtin printf -v val %d ''\''>'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='>'
++++ out+='>'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=d
++++ builtin printf -v val %d ''\''d'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=d
++++ out+=d
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=v
++++ builtin printf -v val %d ''\''v'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=v
++++ out+=v
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=/
++++ builtin printf -v val %d ''\''/'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=/
++++ out+=/
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=g
++++ builtin printf -v val %d ''\''g'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=g
++++ out+=g
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=p
++++ builtin printf -v val %d ''\''p'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=p
++++ out+=p
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=\'
++++ builtin printf -v val %d ''\'''\'''
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=\'
++++ out+=\'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=G
++++ builtin printf -v val %d ''\''G'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=G
++++ out+=G
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=L
++++ builtin printf -v val %d ''\''L'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=L
++++ out+=L
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=I
++++ builtin printf -v val %d ''\''I'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=I
++++ out+=I
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=B
++++ builtin printf -v val %d ''\''B'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=B
++++ out+=B
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=C
++++ builtin printf -v val %d ''\''C'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=C
++++ out+=C
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=_
++++ builtin printf -v val %d ''\''_'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=_
++++ out+=_
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='['
++++ builtin printf -v val %d ''\''['
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='['
++++ out+='['
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=0
++++ builtin printf -v val %d ''\''0'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=0
++++ out+=0
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=9
++++ builtin printf -v val %d ''\''9'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=9
++++ out+=9
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=']'
++++ builtin printf -v val %d ''\'']'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=']'
++++ out+=']'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='\'
++++ builtin printf -v val %d ''\''\'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ token='\\'
++++ out+='\\'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=+
++++ builtin printf -v val %d ''\''+'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=+
++++ out+=+
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='\'
++++ builtin printf -v val %d ''\''\'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ token='\\'
++++ out+='\\'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=.
++++ builtin printf -v val %d ''\''.'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=.
++++ out+=.
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='['
++++ builtin printf -v val %d ''\''['
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='['
++++ out+='['
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=0
++++ builtin printf -v val %d ''\''0'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=0
++++ out+=0
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=9
++++ builtin printf -v val %d ''\''9'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=9
++++ out+=9
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=']'
++++ builtin printf -v val %d ''\'']'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=']'
++++ out+=']'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='\'
++++ builtin printf -v val %d ''\''\'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ token='\\'
++++ out+='\\'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=+
++++ builtin printf -v val %d ''\''+'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=+
++++ out+=+
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=\'
++++ builtin printf -v val %d ''\'''\'''
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=\'
++++ out+=\'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=s
++++ builtin printf -v val %d ''\''s'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=s
++++ out+=s
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=o
++++ builtin printf -v val %d ''\''o'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=o
++++ out+=o
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=V
++++ builtin printf -v val %d ''\''V'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=V
++++ out+=V
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=a
++++ builtin printf -v val %d ''\''a'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=a
++++ out+=a
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=i
++++ builtin printf -v val %d ''\''i'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=i
++++ out+=i
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=l
++++ builtin printf -v val %d ''\''l'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=l
++++ out+=l
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=n
++++ builtin printf -v val %d ''\''n'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=n
++++ out+=n
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=5
++++ builtin printf -v val %d ''\''5'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=5
++++ out+=5
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=0
++++ builtin printf -v val %d ''\''0'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=0
++++ out+=0
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='|'
++++ builtin printf -v val %d ''\''|'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='|'
++++ out+='|'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=t
++++ builtin printf -v val %d ''\''t'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=t
++++ out+=t
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=u
++++ builtin printf -v val %d ''\''u'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=u
++++ out+=u
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=e
++++ builtin printf -v val %d ''\''e'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=e
++++ out+=e
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=m
++++ builtin printf -v val %d ''\''m'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=m
++++ out+=m
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=-
++++ builtin printf -v val %d ''\''-'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=-
++++ out+=-
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=r
++++ builtin printf -v val %d ''\''r'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=r
++++ out+=r
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=f
++++ builtin printf -v val %d ''\''f'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=f
++++ out+=f
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='$'
++++ builtin printf -v val %d ''\''$'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='$'
++++ out+='$'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=T
++++ builtin printf -v val %d ''\''T'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=T
++++ out+=T
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=M
++++ builtin printf -v val %d ''\''M'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=M
++++ out+=M
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=P
++++ builtin printf -v val %d ''\''P'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=P
++++ out+=P
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=D
++++ builtin printf -v val %d ''\''D'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=D
++++ out+=D
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=I
++++ builtin printf -v val %d ''\''I'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=I
++++ out+=I
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=R
++++ builtin printf -v val %d ''\''R'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=R
++++ out+=R
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=';'
++++ builtin printf -v val %d ''\'';'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='\x3b'
++++ out+='\x3b'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='}'
++++ builtin printf -v val %d ''\''}'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='}'
++++ out+='}'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='>'
++++ builtin printf -v val %d ''\''>'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='>'
++++ out+='>'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='$'
++++ builtin printf -v val %d ''\''$'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='$'
++++ out+='$'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=O
++++ builtin printf -v val %d ''\''O'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=O
++++ out+=O
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=U
++++ builtin printf -v val %d ''\''U'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=U
++++ out+=U
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=T
++++ builtin printf -v val %d ''\''T'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=T
++++ out+=T
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='"'
++++ builtin printf -v val %d ''\''"'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='"'
++++ out+='"'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=' '
++++ builtin printf -v val %d ''\'' '
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=' '
++++ out+=' '
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=2
++++ builtin printf -v val %d ''\''2'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=2
++++ out+=2
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='>'
++++ builtin printf -v val %d ''\''>'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='>'
++++ out+='>'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte='&'
++++ builtin printf -v val %d ''\''&'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token='&'
++++ out+='&'
++++ (( ++i  ))
++++ (( i < 757 ))
++++ byte=1
++++ builtin printf -v val %d ''\''1'
++++ ((  val < 31  ))
++++ ((  val == 92  ))
++++ ((  val == 59  ))
++++ token=1
++++ out+=1
++++ (( ++i  ))
++++ (( i < 757 ))
++++ builtin printf '%s\n' '{   echo "DEB=$DEB"\x3b   echo "== dpkg-deb -I =="\x3b   dpkg-deb -I "$DEB"\x3b   echo\x3b   echo "== dpkg-deb -c (first 120 lines) =="\x3b   dpkg-deb -c "$DEB" | sed -n '\''1,120p'\''\x3b   echo\x3b   TMPDIR=$(mktemp -d)\x3b   dpkg-deb -x "$DEB" "$TMPDIR"\x3b   echo "== overlay file =="\x3b   file "$TMPDIR/usr/bin/educontrol-overlay" || true\x3b   echo "== overlay ELF header =="\x3b   readelf -h "$TMPDIR/usr/bin/educontrol-overlay" | egrep '\''Class:|Machine:|OS/ABI:'\'' || true\x3b   echo "== overlay interpreter =="\x3b   readelf -l "$TMPDIR/usr/bin/educontrol-overlay" | grep -n "interpreter" -A2 || true\x3b   echo "== GLIBC versions =="\x3b   objdump -T "$TMPDIR/usr/bin/educontrol-overlay" 2>/dev/null | grep -o '\''GLIBC_[0-9]\\+\\.[0-9]\\+'\'' | sort -Vu | tail -n 50 || true\x3b   rm -rf "$TMPDIR"\x3b } > "$OUT" 2>&1'
+++ builtin printf '\e]633;E;%s;%s\a' '{   echo "DEB=$DEB"\x3b   echo "== dpkg-deb -I =="\x3b   dpkg-deb -I "$DEB"\x3b   echo\x3b   echo "== dpkg-deb -c (first 120 lines) =="\x3b   dpkg-deb -c "$DEB" | sed -n '\''1,120p'\''\x3b   echo\x3b   TMPDIR=$(mktemp -d)\x3b   dpkg-deb -x "$DEB" "$TMPDIR"\x3b   echo "== overlay file =="\x3b   file "$TMPDIR/usr/bin/educontrol-overlay" || true\x3b   echo "== overlay ELF header =="\x3b   readelf -h "$TMPDIR/usr/bin/educontrol-overlay" | egrep '\''Class:|Machine:|OS/ABI:'\'' || true\x3b   echo "== overlay interpreter =="\x3b   readelf -l "$TMPDIR/usr/bin/educontrol-overlay" | grep -n "interpreter" -A2 || true\x3b   echo "== GLIBC versions =="\x3b   objdump -T "$TMPDIR/usr/bin/educontrol-overlay" 2>/dev/null | grep -o '\''GLIBC_[0-9]\\+\\.[0-9]\\+'\'' | sort -Vu | tail -n 50 || true\x3b   rm -rf "$TMPDIR"\x3b } > "$OUT" 2>&1' 2612a8f3-d149-4ae1-a62c-22bb0f472977
+]633;E;{   echo "DEB=$DEB"\x3b   echo "== dpkg-deb -I =="\x3b   dpkg-deb -I "$DEB"\x3b   echo\x3b   echo "== dpkg-deb -c (first 120 lines) =="\x3b   dpkg-deb -c "$DEB" | sed -n '1,120p'\x3b   echo\x3b   TMPDIR=$(mktemp -d)\x3b   dpkg-deb -x "$DEB" "$TMPDIR"\x3b   echo "== overlay file =="\x3b   file "$TMPDIR/usr/bin/educontrol-overlay" || true\x3b   echo "== overlay ELF header =="\x3b   readelf -h "$TMPDIR/usr/bin/educontrol-overlay" | egrep 'Class:|Machine:|OS/ABI:' || true\x3b   echo "== overlay interpreter =="\x3b   readelf -l "$TMPDIR/usr/bin/educontrol-overlay" | grep -n "interpreter" -A2 || true\x3b   echo "== GLIBC versions =="\x3b   objdump -T "$TMPDIR/usr/bin/educontrol-overlay" 2>/dev/null | grep -o 'GLIBC_[0-9]\\+\\.[0-9]\\+' | sort -Vu | tail -n 50 || true\x3b   rm -rf "$TMPDIR"\x3b } > "$OUT" 2>&1;2612a8f3-d149-4ae1-a62c-22bb0f472977++ builtin printf '\e]633;C\a'
+]633;C+ echo DEB=packaging/deb/educontrol.client-0.1.9-i386.deb
+DEB=packaging/deb/educontrol.client-0.1.9-i386.deb
+++ __vsc_preexec_only DEB=packaging/deb/educontrol.client-0.1.9-i386.deb
+++ '[' 1 = 0 ']'
++ echo '== dpkg-deb -I =='
+== dpkg-deb -I ==
+++ __vsc_preexec_only '== dpkg-deb -I =='
+++ '[' 1 = 0 ']'
++ dpkg-deb -I packaging/deb/educontrol.client-0.1.9-i386.deb
+ new Debian package, version 2.0.
+ size 16744 bytes: control archive=952 bytes.
+     380 bytes,    10 lines      control
+    1322 bytes,    33 lines   *  postinst             #!/bin/sh
+ Package: educontrol.client
+ Version: 0.1.9
+ Section: utils
+ Priority: optional
+ Architecture: i386
+ Depends: python3, zenity, libglib2.0-bin, gcc, pkg-config, libgtk-3-dev
+ Maintainer: EduControl <noreply@example.org>
+ Description:
+   Cliente EduControl (nativo) - muestra overlay de aula y escucha comandos
+   A small native client for classroom control. Installs autostart and binaries.
+++ __vsc_preexec_only packaging/deb/educontrol.client-0.1.9-i386.deb
+++ '[' 1 = 0 ']'
++ echo
+
+++ __vsc_preexec_only echo
+++ '[' 1 = 0 ']'
++ echo '== dpkg-deb -c (first 120 lines) =='
+== dpkg-deb -c (first 120 lines) ==
+++ __vsc_preexec_only '== dpkg-deb -c (first 120 lines) =='
+++ '[' 1 = 0 ']'
+++ __vsc_preexec_only '== dpkg-deb -c (first 120 lines) =='
+++ '[' 1 = 0 ']'
++ dpkg-deb -c packaging/deb/educontrol.client-0.1.9-i386.deb
++ sed -n 1,120p
+drwxrwxr-x 1000/1000         0 2026-01-13 18:51 ./
+drwxrwxr-x 1000/1000         0 2026-01-13 18:51 ./etc/
+drwxrwxr-x 1000/1000         0 2026-01-13 18:51 ./etc/xdg/
+drwxrwxr-x 1000/1000         0 2026-01-13 18:51 ./etc/xdg/autostart/
+-rw-rw-r-- 1000/1000       135 2026-01-13 19:03 ./etc/xdg/autostart/com.educontrol.Client.desktop
+drwxrwxr-x 1000/1000         0 2026-01-13 18:51 ./usr/
+drwxrwxr-x 1000/1000         0 2026-01-15 18:12 ./usr/bin/
+-rwxr-xr-x 1000/1000       202 2026-01-13 19:03 ./usr/bin/educontrol-client
+-rwxr-xr-x 1000/1000       113 2026-01-14 21:41 ./usr/bin/educontrol-cliente
+-rwxr-xr-x root/root     15400 2026-01-15 18:12 ./usr/bin/educontrol-overlay
+drwxrwxr-x 1000/1000         0 2026-01-13 18:51 ./usr/share/
+drwxrwxr-x 1000/1000         0 2026-01-15 17:36 ./usr/share/educontrol/
+drwxrwxr-x 1000/1000         0 2026-01-14 23:19 ./usr/share/educontrol/__pycache__/
+-rw-r--r-- 1000/1000     18495 2026-01-14 23:19 ./usr/share/educontrol/__pycache__/educontrol-cliente.cpython-313.pyc
+-rw-rw-r-- 1000/1000       191 2026-01-14 21:41 ./usr/share/educontrol/educontrol-client.desktop
+-rwxrwxr-x 1000/1000     15839 2026-01-15 17:36 ./usr/share/educontrol/educontrol-cliente.py
+-rw-rw-r-- 1000/1000       631 2026-01-14 16:46 ./usr/share/educontrol/overlay.c
+++ __vsc_preexec_only '== dpkg-deb -c (first 120 lines) =='
+++ '[' 1 = 0 ']'
++ echo
+
+++ __vsc_preexec_only echo
+++ '[' 1 = 0 ']'
+++ mktemp -d
++ TMPDIR=/tmp/tmp.wa1dq1yskO
+++ __vsc_preexec_only ''
+++ '[' 1 = 0 ']'
++ dpkg-deb -x packaging/deb/educontrol.client-0.1.9-i386.deb /tmp/tmp.wa1dq1yskO
+++ __vsc_preexec_only /tmp/tmp.wa1dq1yskO
+++ '[' 1 = 0 ']'
++ echo '== overlay file =='
+== overlay file ==
+++ __vsc_preexec_only '== overlay file =='
+++ '[' 1 = 0 ']'
++ file /tmp/tmp.wa1dq1yskO/usr/bin/educontrol-overlay
+/tmp/tmp.wa1dq1yskO/usr/bin/educontrol-overlay: ELF 32-bit LSB pie executable, Intel i386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=32afd5e6ec08c0558ec12a5fec9c1b8be55a1028, for GNU/Linux 3.2.0, not stripped
+++ __vsc_preexec_only /tmp/tmp.wa1dq1yskO/usr/bin/educontrol-overlay
+++ '[' 1 = 0 ']'
++ echo '== overlay ELF header =='
+== overlay ELF header ==
+++ __vsc_preexec_only '== overlay ELF header =='
+++ '[' 1 = 0 ']'
+++ __vsc_preexec_only '== overlay ELF header =='
+++ '[' 1 = 0 ']'
++ readelf -h /tmp/tmp.wa1dq1yskO/usr/bin/educontrol-overlay
++ egrep 'Class:|Machine:|OS/ABI:'
+  Class:                             ELF32
+  OS/ABI:                            UNIX - System V
+  Machine:                           Intel 80386
+++ __vsc_preexec_only '== overlay ELF header =='
+++ '[' 1 = 0 ']'
++ echo '== overlay interpreter =='
+== overlay interpreter ==
+++ __vsc_preexec_only '== overlay interpreter =='
+++ '[' 1 = 0 ']'
+++ __vsc_preexec_only '== overlay interpreter =='
+++ '[' 1 = 0 ']'
++ readelf -l /tmp/tmp.wa1dq1yskO/usr/bin/educontrol-overlay
++ grep -n interpreter -A2
+10:      [Requesting program interpreter: /lib/ld-linux.so.2]
+11-  LOAD           0x000000 0x00000000 0x00000000 0x00634 0x00634 R   0x1000
+12-  LOAD           0x001000 0x00001000 0x00001000 0x00330 0x00330 R E 0x1000
+++ __vsc_preexec_only '== overlay interpreter =='
+++ '[' 1 = 0 ']'
++ echo '== GLIBC versions =='
+== GLIBC versions ==
+++ __vsc_preexec_only '== GLIBC versions =='
+++ '[' 1 = 0 ']'
+++ __vsc_preexec_only '== GLIBC versions =='
+++ '[' 1 = 0 ']'
++ grep -o 'GLIBC_[0-9]\+\.[0-9]\+'
+++ __vsc_preexec_only '== GLIBC versions =='
+++ '[' 1 = 0 ']'
++ sort -Vu
+++ __vsc_preexec_only '== GLIBC versions =='
+++ '[' 1 = 0 ']'
++ tail -n 50
++ objdump -T /tmp/tmp.wa1dq1yskO/usr/bin/educontrol-overlay
+GLIBC_2.1
+GLIBC_2.34
+++ __vsc_preexec_only '== GLIBC versions =='
+++ '[' 1 = 0 ']'
++ rm -rf /tmp/tmp.wa1dq1yskO

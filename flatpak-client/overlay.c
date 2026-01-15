@@ -9,7 +9,7 @@ static void on_destroy(GtkWidget *widget, gpointer user_data) {
 int main(int argc, char **argv) {
     gtk_init(&argc, &argv);
 
-    const char *message = "ATENCIÓN\n\nPantalla bloqueada por el profesor.\n\nSigue las instrucciones en clase.";
+    const char *message = "ATENCIÓ\n\nPantalla bloquejada pel professorat.\n\nSegueix les instruccions a classe.";
     if (argc >= 2 && argv[1] && argv[1][0] != '\0') {
         message = argv[1];
     }

@@ -1,0 +1,6 @@
+Overlay GLIBC versions required by amd64 overlay:
+GLIBC_2.2
+
+Control fields:
+ Architecture: amd64
+ Depends: python3, zenity, libglib2.0-bin, gcc, pkg-config, libgtk-3-dev

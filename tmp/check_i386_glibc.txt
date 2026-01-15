@@ -1,0 +1,7 @@
+GLIBC versions required by i386 overlay:
+GLIBC_2.0
+GLIBC_2.1
+
+Control fields:
+ Architecture: i386
+ Depends: python3, zenity, libglib2.0-bin, libgtk-3-0
