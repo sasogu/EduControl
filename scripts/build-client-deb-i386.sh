@@ -15,7 +15,7 @@ Uso:
     en equipos con Debian 11 / glibc 2.31).
 
 Opciones:
-  --out PATH     Ruta del .deb de salida (por defecto: packaging/deb/educontrol.client-<version>-i386.deb)
+  --out PATH     Ruta del .deb de salida (por defecto: packaging/deb/educontrol-client-<version>-i386.deb)
   --image IMAGE  Imagen i386 Debian (por defecto: i386/debian:bookworm)
   -h, --help     Ayuda
 
@@ -40,7 +40,7 @@ if [[ -z "$VERSION" ]]; then
   exit 1
 fi
 
-OUT_REL="packaging/deb/educontrol.client-${VERSION}-i386.deb"
+OUT_REL="packaging/deb/educontrol-client-${VERSION}-i386.deb"
 IMAGE="i386/debian:bullseye"
 
 while [[ $# -gt 0 ]]; do
@@ -65,7 +65,7 @@ fi
 OUT_ABS="$ROOT_DIR/$OUT_REL"
 mkdir -p "$(dirname "$OUT_ABS")"
 
-echo "➡ Construyendo educontrol.client i386 (version=$VERSION)"
+echo "➡ Construyendo educontrol-client i386 (version=$VERSION)"
 echo "   Runner: $RUNNER"
 echo "   Image:  $IMAGE"
 echo "   Out:    $OUT_REL"

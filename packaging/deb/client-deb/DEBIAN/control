@@ -1,4 +1,4 @@
-Package: educontrol.client
+Package: educontrol-client
 Version: 0.1.10
 Section: utils
 Priority: optional

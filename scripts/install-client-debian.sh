@@ -8,7 +8,7 @@ LIST_PATH_DEFAULT="/etc/apt/sources.list.d/edutictac.list"
 
 COMPONENT_DEFAULT="main"
 ARCH_DEFAULT="amd64"
-PACKAGE_NAME_DEFAULT="educontrol.client"
+PACKAGE_NAME_DEFAULT="educontrol-client"
 
 usage() {
   cat <<'EOF'
@@ -21,13 +21,13 @@ Opciones:
   --suite CODENAME      (por defecto: detectado desde /etc/os-release; fallback: bookworm)
   --component NAME      (por defecto: main)
   --arch ARCH           (por defecto: amd64)
-  --package NOMBRE      (por defecto: educontrol.client)
+  --package NOMBRE      (por defecto: educontrol-client)
   -h, --help            Ayuda
 
 Ejemplos:
   sudo ./install-client-debian.sh
   sudo ./install-client-debian.sh --suite bookworm
-  sudo ./install-client-debian.sh --package educontrol.client
+  sudo ./install-client-debian.sh --package educontrol-client
 EOF
 }
 

@@ -9,7 +9,7 @@ LIST_PATH_DEFAULT="/etc/apt/sources.list.d/edutictac.list"
 COMPONENT_DEFAULT="main"
 ARCH_DEFAULT="amd64"
 
-PACKAGE_NAME_DEFAULT="educontrol.server"
+PACKAGE_NAME_DEFAULT="educontrol-server"
 
 usage() {
   cat <<'EOF'
@@ -22,13 +22,13 @@ Opciones:
   --suite CODENAME      (por defecto: detectado desde /etc/os-release; fallback: bookworm)
   --component NAME      (por defecto: main)
   --arch ARCH           (por defecto: amd64)
-  --package NOMBRE      (por defecto: educontrol.server)
+  --package NOMBRE      (por defecto: educontrol-server)
   -h, --help            Ayuda
 
 Ejemplos:
   sudo ./install-server-debian.sh
   sudo ./install-server-debian.sh --suite bookworm
-  sudo ./install-server-debian.sh --package educontrol.server
+  sudo ./install-server-debian.sh --package educontrol-server
 EOF
 }
 

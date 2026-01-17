@@ -1,13 +1,13 @@
-Package: educontrol.server
+Package: educontrol-server
 Version: 0.1.6
 Section: utils
 Priority: optional
 Architecture: all
 Depends: python3
 Recommends: python3-tk
-Conflicts: educontrol-server
-Replaces: educontrol-server
-Provides: educontrol-server
+Conflicts: educontrol.server
+Replaces: educontrol.server
+Provides: educontrol.server
 Maintainer: EduControl Packager <packager@example.com>
 Description: EduControl server helper
   A small package that installs the EduControl server to run independently.

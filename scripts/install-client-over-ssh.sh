@@ -11,7 +11,7 @@ Ejemplos:
   bash scripts/install-client-over-ssh.sh --host 192.168.122.144 --user lliurex
 
   # Especificando .deb exacto
-  bash scripts/install-client-over-ssh.sh --host 192.168.122.144 --user lliurex --deb packaging/deb/educontrol.client-0.1.6.deb
+  bash scripts/install-client-over-ssh.sh --host 192.168.122.144 --user lliurex --deb packaging/deb/educontrol-client-0.1.6.deb
 
 Notas:
   - Si no tienes clave SSH, pedirá contraseña (SSH y sudo) de forma interactiva.
@@ -43,9 +43,9 @@ fi
 
 if [[ -z "$DEB" ]]; then
   # Elige el .deb más reciente por orden de versión (sort -V)
-  mapfile -t candidates < <(ls -1 packaging/deb/educontrol.client-*.deb 2>/dev/null | sort -V)
+  mapfile -t candidates < <(ls -1 packaging/deb/educontrol-client-*.deb 2>/dev/null | sort -V)
   if [[ ${#candidates[@]} -eq 0 ]]; then
-    echo "No encuentro packaging/deb/educontrol.client-*.deb (usa --deb)" >&2
+    echo "No encuentro packaging/deb/educontrol-client-*.deb (usa --deb)" >&2
     exit 1
   fi
   DEB="${candidates[-1]}"
@@ -61,7 +61,7 @@ remote_tmp="/tmp/$base"
 
 set -x
 scp -P "$PORT" "$DEB" "$USER@$HOST:$remote_tmp"
-ssh -p "$PORT" -t "$USER@$HOST" "sudo dpkg -i '$remote_tmp' && sudo apt-get -y -f install && dpkg -l | grep -E 'educontrol\\.client|educontrol\\.server' || true"
+ssh -p "$PORT" -t "$USER@$HOST" "sudo dpkg -i '$remote_tmp' && sudo apt-get -y -f install && dpkg -l | grep -E 'educontrol-client|educontrol-server' || true"
 set +x
 
 echo "✅ Instalación remota completada en $USER@$HOST"
