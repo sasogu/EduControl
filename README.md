@@ -147,7 +147,7 @@ El servidor puede descubrir qué clientes están activos enviando el comando UDP
 
 Nota de red: el discovery usa UDP y, por defecto, intenta usar el mismo puerto `5007` (el habitual de EduControl). Si hay firewall en el equipo profesor, permite UDP entrante en `5007`.
 
-Nota: desde `educontrol-client` **0.1.6** el cliente usa un *lockfile* para evitar múltiples instancias (esto ayuda a que el discovery y los comandos no se dupliquen). Si antes se lanzaban varias instancias por autostart, puede hacer falta cerrar sesión o reiniciar el cliente para “limpiar” procesos antiguos.
+Nota: desde `educontrol-client` **0.1.6** el cliente usa un _lockfile_ para evitar múltiples instancias (esto ayuda a que el discovery y los comandos no se dupliquen). Si antes se lanzaban varias instancias por autostart, puede hacer falta cerrar sesión o reiniciar el cliente para “limpiar” procesos antiguos.
 
 Si tienes clientes en una red donde multicast/broadcast no llega (por ejemplo, máquinas virtuales en la red `default` de libvirt), puedes forzar unicast a IPs concretas:
 
